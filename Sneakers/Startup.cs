@@ -12,21 +12,29 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using hiTommy.Data.Services;
 
 namespace Sneakers
 {
     public class Startup
     {
+
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            ShoeStoreConnectionString = Configuration.GetConnectionString("ShoeStoreConnectionString");
         }
+        public string ShoeStoreConnectionString { get; set; }
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<hiTommy.Data.ApplicationDbContext>(options => options.UseSqlServer(ShoeStoreConnectionString));
+            services.AddTransient<ShoeServices>();
+       
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));

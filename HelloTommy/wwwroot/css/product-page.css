@@ -1,0 +1,102 @@
+.product-description h2 {
+    font-size: 2rem;
+}
+
+.product-description p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+}
+
+#quote {
+    font-size: 1.10rem;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+}
+
+.product {
+    background: url('https://stockx-360.imgix.net/Nike-Tom-Craft-NikeCraft-Mars-Yard-Shoe/Images/Nike-Tom-Craft-NikeCraft-Mars-Yard-Shoe/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607046239&w=1000') no-repeat center center/cover;
+    background-size: contain;
+    width: 50%;
+    height: 50%;
+}
+
+.product-description {
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    padding: 2rem;   
+}
+
+.product-info {
+    height: 25%;
+    text-align: center;
+}
+
+.product-info h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    padding: 4rem 0;
+}
+
+.product-info h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+}
+
+/* Dropdown */
+
+.dropdown-container {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    height: 25%;
+    align-items: center;
+    padding: 0 8rem;
+}
+
+.size-label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+}
+
+select {
+    width: 100%;
+    height: 1.5rem;
+    position: relative;
+    bottom: 0.65rem;
+    
+}
+
+/* Buttons  */
+
+.button-section {
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    justify-content: top;
+    align-items: center;
+}
+
+.cart-button, .buy-button {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 15rem;
+    color: #fff;
+    background-color: #333;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    transition: all 300ms ease-in-out;
+}
+
+.cart-button:hover, .buy-button:hover {
+    background-color: black;
+}

@@ -1,0 +1,13 @@
+/* Header */
+
+.box-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgb(255, 0, 0), hsla(0, 0%, 100%, 0.39));
+    height: 12vh;
+}
+
+.box-header h1 {
+    padding: 1rem;
+}

@@ -11,6 +11,6 @@ namespace hiTommy.Data.ViewModels
     public class BrandWithShoesVm
     {
         public string Name { get; set; }
-        public virtual List<Shoe> Shoes { get; set; }
+        public List<Shoe> Shoes { get; set; }
     }
 }

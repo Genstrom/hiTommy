@@ -8,7 +8,6 @@ namespace hiTommy.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public virtual List<Shoe>? Shoes { get; set; }
+        public List<Shoe> Shoes { get; set; } = new();
     }
 }

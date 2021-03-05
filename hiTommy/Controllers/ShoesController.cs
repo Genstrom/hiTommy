@@ -30,21 +30,21 @@ namespace hiTommy.Controllers
         }
 
         [HttpPost("add-shoe")]
-        public IActionResult AddShoe([FromBody] ShoeVm shoe)
+        public IActionResult AddShoe([FromBody] ShoeViewModel shoe)
         {
             _shoesService.AddShoe(shoe);
             return Ok();
         }
 
         [HttpPut("update-shoe-by-id/{id}")]
-        public IActionResult UpdateShoeById(int id, [FromBody] ShoeVm shoe)
+        public IActionResult UpdateShoeById(int id, [FromBody] ShoeViewModel shoe)
         {
             var updatedShoe = _shoesService.UpdateShoeById(id, shoe);
             return Ok(updatedShoe);
         }
 
         [HttpPut("set-shoe-on-sale-by-id/{id}")]
-        public IActionResult SetShoeOnSaleByID(int id, [FromBody] ShoeVmSale shoe)
+        public IActionResult SetShoeOnSaleByID(int id, [FromBody] ShoeSaleViewModel shoe)
         {
             var updatedShoe = _shoesService.SetShoeOnSaleById(id, shoe);
             return Ok(updatedShoe);

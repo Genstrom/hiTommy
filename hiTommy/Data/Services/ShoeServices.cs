@@ -14,7 +14,7 @@ namespace hiTommy.Data.Services
             _context = context;
         }
 
-        public void AddShoe(ShoeVm shoe)
+        public void AddShoe(ShoeViewModel shoe)
         {
             var _shoe = new Shoe
             {
@@ -42,7 +42,7 @@ namespace hiTommy.Data.Services
             return _context.Shoes.FirstOrDefault(n => n.Id == shoeId);
         }
 
-        public Shoe UpdateShoeById(int shoeId, ShoeVm shoe)
+        public Shoe UpdateShoeById(int shoeId, ShoeViewModel shoe)
         {
             var _shoe = _context.Shoes.FirstOrDefault(n => n.Id == shoeId);
             if (_shoe is not null)
@@ -59,7 +59,7 @@ namespace hiTommy.Data.Services
             return _shoe;
         }
 
-        public Shoe SetShoeOnSaleById(int shoeId, ShoeVmSale shoe)
+        public Shoe SetShoeOnSaleById(int shoeId, ShoeSaleViewModel shoe)
         {
             var _shoe = _context.Shoes.FirstOrDefault(n => n.Id == shoeId);
             if (_shoe is not null)
