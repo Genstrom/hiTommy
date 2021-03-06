@@ -20,8 +20,7 @@
 }
 
 .product {
-    background: url('https://stockx-360.imgix.net/Nike-Tom-Craft-NikeCraft-Mars-Yard-Shoe/Images/Nike-Tom-Craft-NikeCraft-Mars-Yard-Shoe/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607046239&w=1000') no-repeat center center/cover;
-    background-size: contain;
+    object-fit: contain;
     width: 50%;
     height: 50%;
 }

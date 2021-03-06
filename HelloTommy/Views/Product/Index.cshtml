@@ -5,11 +5,9 @@
 }
 <main>
     <div class="product-container">
-        <div class="product" style ="        background: url('@(Model.PictureUrl)') no-repeat center center/cover;
-"></div>
-        <div class="product-description"><h2>No description needed</h2><br>
-            <p>@Model.Description</p><br>
-            <div id="quote">"<i>Special features include: outsoles borrowed from the NIKE special forces boot (SFB), VECTRAN fabric from the Mars Excursion Rover airbags, and detailing from Apollo Lunar Overshoes</i>." by Tom Sachs</div> 
+        <img class="product" src="@(Model.PictureUrl)"/>
+        <div class="product-description"><br>
+            <p>@Model.Description</p> 
         </div>
         <div class="product-info">
             <h2>@Model.Name</h2>

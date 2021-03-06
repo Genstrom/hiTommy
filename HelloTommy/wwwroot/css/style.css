@@ -48,7 +48,7 @@ h1 {
 
 /* Main Grid Items */
 
-.main-grid-items-1 {
+/*.main-grid-items-1 {
     background: url('https://stockx-360.imgix.net/Nike-Tom-Craft-NikeCraft-Mars-Yard-Shoe/Images/Nike-Tom-Craft-NikeCraft-Mars-Yard-Shoe/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607046239&w=1000') no-repeat center center/cover;
     background-size: contain;
 }
@@ -91,13 +91,21 @@ h1 {
 .main-grid-items-9 {
     background: url('https://stockx-360.imgix.net/Air-Jordan-1-Retro-High-Off-White-White/Images/Air-Jordan-1-Retro-High-Off-White-White/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607656930&w=1000') no-repeat center center/cover;
     background-size: contain;
-}
+}*/
 
 .product-image {
     transition: all 300ms ease-in-out;
+    
 }
 
-    .product-image:hover {
+    .product-image img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        
+    }
+
+.product-image:hover {
         transform: scale(0.9);
     }
 
