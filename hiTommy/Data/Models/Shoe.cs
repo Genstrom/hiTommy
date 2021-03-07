@@ -18,5 +18,6 @@ namespace hiTommy.Models
         //Navigation Properties
         public string Brand { get; set; }
         public int BrandId { get; set; }
+
     }
 }

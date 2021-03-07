@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/contact-page.css" />
+</head>
+<div class="form-container">
+    <form id="contact" action="" method="post">
+        <h1>Contact Us!</h1>
+        <h4>Having issues or general feedback? Let us know!</h4>
+        <fieldset>
+            <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Your Email Address" type="email" tabindex="2" required>
+        </fieldset>
+        <fieldset>
+            <select id="subject" name="subject" tabindex="3">
+                <option value="price">Product Price Question</option>
+                <option value="shipping">Shipping Enquires</option>
+                <option value="myOrder">About my order?</option>
+                <option value="return">Return Product</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+        </fieldset>
+        <fieldset>
+            <input type="submit" value="Send" name="submit" id="contact-submit" data-submit="...Sending"></input>
+        </fieldset>
+    </form>
+</div>
