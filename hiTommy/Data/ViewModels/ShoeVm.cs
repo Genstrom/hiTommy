@@ -11,9 +11,6 @@ namespace hiTommy.Data.ViewModels
         [Column(TypeName = "Price")] public decimal Price { get; set; }
 
         public int BrandId { get; set; }
-        public bool IsOnSale { get; set; }
-
-        [Column(TypeName = "SalePrice")] public decimal? SalePrice { get; set; }
         public string Description { get; set; }
         public string PictureUrl { get; set; }
     }
