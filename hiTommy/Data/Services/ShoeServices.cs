@@ -21,8 +21,8 @@ namespace hiTommy.Data.Services
                 Name = shoe.Name,
                 Price = shoe.Price,
                 BrandId = shoe.BrandId,
-                IsOnSale = shoe.IsOnSale,
-                SalePrice = shoe.IsOnSale ? shoe.SalePrice : null,
+                IsOnSale = false,
+                SalePrice = null,
                 Description = shoe.Description,
                 PictureUrl = shoe.PictureUrl,
 
@@ -49,8 +49,8 @@ namespace hiTommy.Data.Services
             {
                 _shoe.Name = shoe.Name;
                 _shoe.Price = shoe.Price;
-                _shoe.IsOnSale = shoe.IsOnSale;
-                _shoe.SalePrice = shoe.IsOnSale ? shoe.SalePrice : null;
+                _shoe.IsOnSale = false;
+                _shoe.SalePrice = null;
                 _shoe.BrandId = shoe.BrandId;
 
                 _context.SaveChanges();
