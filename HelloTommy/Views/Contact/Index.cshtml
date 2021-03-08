@@ -3,7 +3,9 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/contact-page.css" />
+    @section Styles{ 
+    <link rel="stylesheet" href="@Url.Content("~/css/contact-page.css")" />
+    }
 </head>
 <div class="form-container">
     <form id="contact" action="" method="post">
