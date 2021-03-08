@@ -3,7 +3,9 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/contact-page.css" />
+    @section Styles{ 
+    <link rel="stylesheet" href="@Url.Content("~/css/contact-page.css")" />
+    }
 </head>
 <div class="form-container">
     <form id="contact" action="" method="post">
@@ -27,7 +29,7 @@
             <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
         </fieldset>
         <fieldset>
-            <input type="submit" value="Send" name="submit" id="contact-submit" data-submit="...Sending"></input>
+            <input type="submit" value="Send" name="submit" id="contact-submit" data-submit="...Sending">
         </fieldset>
     </form>
 </div>

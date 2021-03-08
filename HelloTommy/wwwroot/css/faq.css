@@ -64,7 +64,7 @@ main {
 
     .card-container {
         display: block;
-        flex-direction: none;
+        flex-direction: row;
         padding: 4rem;
     }
 
