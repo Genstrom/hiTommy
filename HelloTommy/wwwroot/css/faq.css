@@ -1,6 +1,8 @@
 /* Global properties */
+
+
 main {
-    margin: 10rem 15rem;
+    margin: 10rem 30rem;
 }
 
 /* Questions */
@@ -22,7 +24,7 @@ main {
     }
 
     .question p {
-        margin-left: 2rem;
+        margin-left: 0rem;
         font-size: 18px;
     }
 
