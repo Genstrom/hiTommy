@@ -1,5 +1,4 @@
-﻿using hiTommy.Models;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace hiTommy.Migrations
 {
@@ -7,21 +6,20 @@ namespace hiTommy.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
             migrationBuilder.AddColumn<string>(
-                name: "Brand",
-                table: "Shoes",
-                type: "nvarchar(max)",
+                "Brand",
+                "Shoes",
+                "nvarchar(max)",
                 nullable: true);
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Shoes_Brands_BrandId",
-                table: "Shoes");
+                "FK_Shoes_Brands_BrandId",
+                "Shoes");
 
             migrationBuilder.AlterColumn<int>(
-                name: "BrandId",
-                table: "Shoes",
-                type: "int",
+                "BrandId",
+                "Shoes",
+                "int",
                 nullable: false,
                 defaultValue: 0,
                 oldClrType: typeof(int),
@@ -29,10 +27,10 @@ namespace hiTommy.Migrations
                 oldNullable: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Shoes_Brands_BrandId",
-                table: "Shoes",
-                column: "BrandId",
-                principalTable: "Brands",
+                "FK_Shoes_Brands_BrandId",
+                "Shoes",
+                "BrandId",
+                "Brands",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -40,22 +38,22 @@ namespace hiTommy.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Shoes_Brands_BrandId",
-                table: "Shoes");
+                "FK_Shoes_Brands_BrandId",
+                "Shoes");
 
             migrationBuilder.AlterColumn<int>(
-                name: "BrandId",
-                table: "Shoes",
-                type: "int",
+                "BrandId",
+                "Shoes",
+                "int",
                 nullable: true,
                 oldClrType: typeof(int),
                 oldType: "int");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Shoes_Brands_BrandId",
-                table: "Shoes",
-                column: "BrandId",
-                principalTable: "Brands",
+                "FK_Shoes_Brands_BrandId",
+                "Shoes",
+                "BrandId",
+                "Brands",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
         }

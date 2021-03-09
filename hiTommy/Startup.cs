@@ -31,8 +31,10 @@ namespace hiTommy
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ConnectionString));
             //Configure the Services
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => Configuration.Bind("JwtSettings", options))
-                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => Configuration.Bind("CookieSettings", options));
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,
+                    options => Configuration.Bind("JwtSettings", options))
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+                    options => Configuration.Bind("CookieSettings", options));
             services.AddTransient<ShoeServices>();
             services.AddTransient<OrderService>();
             services.AddTransient<BrandServices>();

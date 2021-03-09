@@ -56,6 +56,5 @@ namespace hiTommy.Controllers
             _shoesService.DeleteShoeById(id);
             return Ok();
         }
-        
     }
 }

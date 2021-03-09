@@ -1,0 +1,25 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Brand";
+    var counter = 0;
+}
+
+<div class="main-container">
+
+    @for (var i = 0; i < Model.Shoes.Count; i++)
+    {
+        counter = i + 1;
+        <a href="/Product/@Model.Shoes[i].Id" class="product-image">
+            <img src="@Model.Shoes[i].PictureUrl"/>
+        </a>
+        if (counter % 3 == 0 && i != 0)
+        {
+            for (var j = 3; j > 0; j--)
+            {
+                <a href="/Product/@Model.Shoes[i + 1 - j].Id" class="product-info">
+                    @Model.Shoes[i + 1 - j].Name<br> @($"{Model.Shoes[i + 1 - j].Price:c}")
+                </a>
+            }
+        }
+    }
+</div>
