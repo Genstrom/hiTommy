@@ -7,10 +7,6 @@
     font-size: 1.25rem;
 }
 
-#quote {
-    font-size: 1.10rem;
-}
-
 .product-container {
     display: flex;
     flex-direction: column;
@@ -57,7 +53,8 @@
     font-size: 1.5rem;
     height: 25%;
     align-items: center;
-    padding: 0 8rem;
+    margin: 0 8rem;
+    justify-content: center;
 }
 
 .size-label {
@@ -65,14 +62,17 @@
     font-weight: 600;
     font-size: 1.5rem;
     padding: 0 1rem;
+    position: relative;
+    right: 2rem;
+    bottom: 0.8rem;
 }
 
 select {
-    width: 100%;
+    width: 15rem;
     height: 1.5rem;
     position: relative;
     bottom: 0.65rem;
-    
+    right: 2.6rem;
 }
 
 /* Buttons  */
