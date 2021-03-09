@@ -4,10 +4,9 @@
 }
 <main>
     <div class="product-container">
-        <img class="product" src="@(Model.Shoe.PictureUrl)"/>
-        <div class="product-description">
-            <br>
-            <p>@Model.Shoe.Description</p>
+        <img class="product" src="@(Model.PictureUrl)"/>
+        <div class="product-description"><br>
+            <p>@Model.Description</p> 
         </div>
         <div class="product-info">
             <h2>@Model.Shoe.Name</h2>
@@ -32,4 +31,6 @@
             </a>
         </div>
     </div>
+
+    <script src="~/js/site.js"></script>
 </main>
