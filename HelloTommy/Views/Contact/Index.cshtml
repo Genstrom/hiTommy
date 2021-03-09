@@ -1,32 +1,39 @@
-﻿@{
+﻿@model ContaFormModel
+@{
     ViewData["Title"] = "Contact";
 }
 
+
 <head>
     @section Styles{ 
-    <link rel="stylesheet" href="@Url.Content("~/css/contact-page.css")" />
+        <link rel="stylesheet" href="@Url.Content("~/css/contact-page.css")" />
     }
 </head>
+
+
 <div class="form-container">
-    <form id="contact" action="" method="post">
+    <form id="contact" method="POST">
         <h1>Contact Us!</h1>
         <h4>Having issues or general feedback? Let us know!</h4>
         <fieldset>
-            <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+            <label for="Name"></label>
+                <input type="text" id="Name" placeholder="Your name goes here" name="name" />
         </fieldset>
         <fieldset>
-            <input placeholder="Your Email Address" type="email" tabindex="2" required>
+             <label for="Email"></label>
+                 <input type="text" id="Email" placeholder="Your email goes here" name="email" />
         </fieldset>
         <fieldset>
             <select id="subject" name="subject" tabindex="3">
-                <option value="price">Product Price Question</option>
+                <option value="Price">Product Price Question</option>
                 <option value="shipping">Shipping Enquires</option>
-                <option value="myOrder">About my order?</option>
-                <option value="return">Return Product</option>
+                <option value="About my Order">About my order?</option>
+                <option value="Return of Order">Return Order</option>
             </select>
         </fieldset>
         <fieldset>
-            <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+       <label for="Message"></label>
+          <input type="text" id="Message" placeholder="Your message goes here" name="message" />
         </fieldset>
         <fieldset>
             <input type="submit" value="Send" name="submit" id="contact-submit" data-submit="...Sending">
