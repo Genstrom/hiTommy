@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using hiTommy.Models
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,9 +27,11 @@
     <nav>
         <div class="box box-navbar">
             <ul class="nav-items">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Nike</a></li>
-                <li><a href="#">Balenciaga</a></li>
+                <li><a href="/" Home">All</a></li>
+                @for (int i = 0; i < @Model.Brand.Count; i++)
+                {
+                    <li><a href="/Brand/@Model.Brand[i].Id/">@Model.Brand[i].Name</a></li>
+                }
             </ul>
         </div>
     </nav>

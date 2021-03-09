@@ -31,9 +31,10 @@ namespace HelloTommy
         {
             services.AddDbContext<hiTommy.Data.ApplicationDbContext>(options => options.UseSqlServer(ShoeStoreConnectionString));
             services.AddTransient<ShoeServices>();
+            services.AddTransient<BrandServices>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString(ShoeStoreConnectionString)));
+                    Configuration.GetConnectionString("ShoeStoreConnectionString")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)

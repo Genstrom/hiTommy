@@ -8,7 +8,7 @@ using hiTommy.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Sneakers.Controllers
+namespace HelloTommy.Controllers
 {
     //[Authorize]
     [Route("product")]

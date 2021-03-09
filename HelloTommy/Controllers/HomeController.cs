@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using hiTommy.Data.Services;
@@ -15,10 +16,12 @@ namespace HelloTommy.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         public ShoeServices _shoesService;
-        public HomeController(ILogger<HomeController> logger, ShoeServices shoeService)
+        public BrandServices _brandServices;
+        public HomeController(ILogger<HomeController> logger, ShoeServices shoeService, BrandServices brandServices)
         {
             _logger = logger;
             _shoesService = shoeService;
+            _brandServices = brandServices;
         }
 
 
@@ -29,14 +32,13 @@ namespace HelloTommy.Controllers
             {
                 Shoes = _shoesService.GetAllShoes()
             };
-           
+            var allBrandsVM = _brandServices.GetAllBrands();
 
-            return View(allShoesVm);
-        }
+            dynamic mymodel = new ExpandoObject();
+            mymodel.AllShoes = allShoesVm.Shoes;
+            mymodel.Brand = allBrandsVM;
 
-        public IActionResult Privacy()
-        {
-            return View();
+            return View(mymodel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
