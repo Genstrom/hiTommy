@@ -1,5 +1,3 @@
-using System;
-
 namespace HelloTommy.Models
 {
     public class ErrorViewModel

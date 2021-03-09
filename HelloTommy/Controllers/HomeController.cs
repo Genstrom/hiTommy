@@ -1,22 +1,19 @@
-﻿using HelloTommy.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Dynamic;
-using System.Linq;
-using System.Threading.Tasks;
+using HelloTommy.Models;
 using hiTommy.Data.Services;
 using hiTommy.Data.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace HelloTommy.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public ShoeServices _shoesService;
-        public BrandServices _brandServices;
+        private readonly BrandServices _brandServices;
+        private readonly ShoeServices _shoesService;
+
         public HomeController(ILogger<HomeController> logger, ShoeServices shoeService, BrandServices brandServices)
         {
             _logger = logger;
@@ -27,16 +24,15 @@ namespace HelloTommy.Controllers
 
         public IActionResult Index()
         {
-
-            var allShoesVm = new ShoeListViewModel()
+            var allShoesVm = new ShoeListViewModel
             {
                 Shoes = _shoesService.GetAllShoes()
             };
-            var allBrandsVM = _brandServices.GetAllBrands();
+            var allBrandsVm = _brandServices.GetAllBrands();
 
             dynamic mymodel = new ExpandoObject();
             mymodel.AllShoes = allShoesVm.Shoes;
-            mymodel.Brand = allBrandsVM;
+            mymodel.Brand = allBrandsVm;
 
             return View(mymodel);
         }
@@ -44,7 +40,7 @@ namespace HelloTommy.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
     }
 }

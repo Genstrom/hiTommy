@@ -1,13 +1,13 @@
-﻿
-@model hiTommy.Models.Shoe
+﻿@model hiTommy.Models.Shoe
 @{
     ViewData["Title"] = "Product";
 }
 <main>
     <div class="product-container">
         <img class="product" src="@(Model.PictureUrl)"/>
-        <div class="product-description"><br>
-            <p>@Model.Description</p> 
+        <div class="product-description">
+            <br>
+            <p>@Model.Description</p>
         </div>
         <div class="product-info">
             <h2>@Model.Name</h2>
@@ -24,8 +24,12 @@
             </select>
         </div>
         <div class="button-section">
-            <a href=""><div class="cart-button">ADD TO CART</div></a>
-            <a href=""><div class="buy-button">BUY NOW</div></a> 
+            <a href="">
+                <div class="cart-button">ADD TO CART</div>
+            </a>
+            <a href="">
+                <div class="buy-button">BUY NOW</div>
+            </a>
         </div>
     </div>
 </main>

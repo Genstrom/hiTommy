@@ -8,20 +8,19 @@
 
 <div class="main-container">
 
-    @for (int i = 0; i < 9; i++)
+    @for (var i = 0; i < 9; i++)
     {
         counter = i + 1;
         <a href="/Product/@Model.AllShoes[i].Id" class="product-image">
-            <img src="@Model.AllShoes[i].PictureUrl" />
+            <img src="@Model.AllShoes[i].PictureUrl"/>
         </a>
         if (counter % 3 == 0 && i != 0)
         {
-            for (int j = 3; j > 0; j--)
+            for (var j = 3; j > 0; j--)
             {
                 <a href="/Product/@Model.AllShoes[i + 1 - j].Id" class="product-info">
                     @Model.AllShoes[i + 1 - j].Name<br> @($"{Model.AllShoes[i + 1 - j].Price:c}")
                 </a>
-
             }
         }
     }
