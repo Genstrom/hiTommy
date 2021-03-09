@@ -75,6 +75,12 @@ select {
     
 }
 
+#image-link {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+}
+
 /* Buttons  */
 
 .button-section {
