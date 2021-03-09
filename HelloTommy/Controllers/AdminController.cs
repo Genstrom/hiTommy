@@ -2,13 +2,11 @@
 using hiTommy.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Dynamic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HelloTommy.Controllers
 {
+    [Route("admin")]
     public class AdminController : Controller
     {
         public BrandServices _brandServices;
@@ -22,7 +20,6 @@ namespace HelloTommy.Controllers
         }
 
 
-        [Route("admin")]
         [HttpGet]
         public IActionResult Index()
         {
@@ -41,8 +38,27 @@ namespace HelloTommy.Controllers
             return View(myModel);
         }
 
+        [Route("add-shoe")]
+        [HttpGet]
+        public IActionResult AddShoeView()
+        {
+            var allShoesVm = new ShoeListViewModel
+            {
+                Shoes = _shoesService.GetAllShoes()
+            };
+            var allBrandsVM = _brandServices.GetAllBrands();
+
+            dynamic myModel = new ExpandoObject();
+
+            myModel.AllShoes = allShoesVm.Shoes;
+            myModel.Brand = allBrandsVM;
+
+
+            return View(myModel);
+        }
+
         [HttpPost]
-        public ActionResult Index(string name, int price, int brandId, string picture, string description)
+        public ActionResult AddShoe(string name, int price, int brandId, string picture, string description)
         {
             var allShoesVm = new ShoeListViewModel
             {
