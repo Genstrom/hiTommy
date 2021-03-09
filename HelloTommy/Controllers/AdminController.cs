@@ -56,9 +56,9 @@ namespace HelloTommy.Controllers
 
             return View(myModel);
         }
-
+        [Route("add-shoe")]
         [HttpPost]
-        public ActionResult AddShoe(string name, int price, int brandId, string picture, string description)
+        public ActionResult AddShoeView(string name, int price, int brandId, string picture, string description)
         {
             var allShoesVm = new ShoeListViewModel
             {
@@ -85,7 +85,11 @@ namespace HelloTommy.Controllers
                         Description = description
                     };
 
-                    _shoesService.AddShoe(shoe);
+                    if (!string.IsNullOrWhiteSpace(shoe.Description))
+                    {
+                        _shoesService.AddShoe(shoe);
+                    }
+                    
 
                     return View(myModel);
                 }
