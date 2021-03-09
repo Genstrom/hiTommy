@@ -1,31 +1,38 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Dynamic;
 using hiTommy.Data.Services;
 using hiTommy.Data.ViewModels;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using hiTommy.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Sneakers.Controllers
+namespace HelloTommy.Controllers
 {
     //[Authorize]
     [Route("product")]
     public class ProductController : Controller
     {
-        public ShoeServices _shoesService;
+        private readonly BrandServices _brandServices;
+        private readonly ShoeServices _shoesService;
 
-        public ProductController(ShoeServices shoeServices)
+        public ProductController(ShoeServices shoeServices, BrandServices brandServices)
         {
             _shoesService = shoeServices;
+            _brandServices = brandServices;
         }
+
         [Route("{productId:int}")]
         public IActionResult Index(int productId)
         {
-           var shoe = _shoesService.GetShoeById(productId);
+            
 
-            return View(shoe);
+               var shoe = _shoesService.GetShoeById(productId);
+      
+            var allBrandsVm = _brandServices.GetAllBrands();
+
+            dynamic mymodel = new ExpandoObject();
+            mymodel.Shoe = shoe;
+            mymodel.Brand = allBrandsVm;
+
+            return View(mymodel);
         }
     }
 }

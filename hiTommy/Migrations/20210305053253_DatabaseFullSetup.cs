@@ -7,9 +7,9 @@ namespace hiTommy.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "PostalCode",
-                table: "Customers",
-                type: "nvarchar(max)",
+                "PostalCode",
+                "Customers",
+                "nvarchar(max)",
                 nullable: true,
                 oldClrType: typeof(int),
                 oldType: "int");
@@ -18,9 +18,9 @@ namespace hiTommy.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<int>(
-                name: "PostalCode",
-                table: "Customers",
-                type: "int",
+                "PostalCode",
+                "Customers",
+                "int",
                 nullable: false,
                 defaultValue: 0,
                 oldClrType: typeof(string),

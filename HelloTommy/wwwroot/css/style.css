@@ -45,54 +45,6 @@ h1 {
 }
 
 
-
-/* Main Grid Items */
-
-/*.main-grid-items-1 {
-    background: url('https://stockx-360.imgix.net/Nike-Tom-Craft-NikeCraft-Mars-Yard-Shoe/Images/Nike-Tom-Craft-NikeCraft-Mars-Yard-Shoe/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607046239&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}
-
-.main-grid-items-2 {
-    background: url('https://stockx-360.imgix.net/Air-Jordan-1-Retro-High-Dior/Images/Air-Jordan-1-Retro-High-Dior/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607043976&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}
-
-.main-grid-items-3 {
-    background: url('https://stockx-360.imgix.net/Nike-SB-Dunk-Low-Ben-Jerrys-Chunky-Dunky-FF-Packaging/Images/Nike-SB-Dunk-Low-Ben-Jerrys-Chunky-Dunky-FF-Packaging/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607045724&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}
-
-.main-grid-items-4 {
-    background: url('https://stockx-360.imgix.net/Balenciaga-Triple-S-Black-White-Red-2018-Reissue/Images/Balenciaga-Triple-S-Black-White-Red-2018-Reissue/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607044743&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}
-
-.main-grid-items-5 {
-    background: url('https://stockx-360.imgix.net/Balenciaga-Track-Orange-Blue/Images/Balenciaga-Track-Orange-Blue/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607657251&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}
-
-.main-grid-items-6 {
-    background: url('https://stockx-360.imgix.net/Balenciaga-Speed-Trainer-Black-White-2018/Images/Balenciaga-Speed-Trainer-Black-White-2018/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1603481985&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}
-
-.main-grid-items-7 {
-    background: url('https://stockx-360.imgix.net/Air-Jordan-1-Retro-High-Off-White-Chicago/Images/Air-Jordan-1-Retro-High-Off-White-Chicago/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1606322952&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}
-
-.main-grid-items-8 {
-    background: url('https://stockx-360.imgix.net/Air-Jordan-1-Retro-High-Off-White-University-Blue/Images/Air-Jordan-1-Retro-High-Off-White-University-Blue/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1606321054&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}
-
-.main-grid-items-9 {
-    background: url('https://stockx-360.imgix.net/Air-Jordan-1-Retro-High-Off-White-White/Images/Air-Jordan-1-Retro-High-Off-White-White/Lv2/img01.jpg?auto=format,compress&q=90&updated_at=1607656930&w=1000') no-repeat center center/cover;
-    background-size: contain;
-}*/
-
 .product-image {
     transition: all 300ms ease-in-out;
     
@@ -131,11 +83,18 @@ h1 {
     align-items: center;
 }
 
-    .footer-items a {
+.footer-items a {
         color: #000;
         padding: 0 1rem;
     }
 
-        .footer-items a:hover {
-            color: #999;
-        }
+.footer-items a:hover {
+     color: #999;
+ }
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}

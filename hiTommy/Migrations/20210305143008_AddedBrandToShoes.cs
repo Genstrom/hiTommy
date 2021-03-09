@@ -7,16 +7,14 @@ namespace hiTommy.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Brand",
-                table: "Shoes",
-                type: "nvarchar(max)",
+                "Brand",
+                "Shoes",
+                "nvarchar(max)",
                 nullable: true);
-
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
         }
     }
 }

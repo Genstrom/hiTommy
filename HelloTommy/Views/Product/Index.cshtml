@@ -1,18 +1,16 @@
-﻿
-@model hiTommy.Models.Shoe
+﻿@model dynamic
 @{
     ViewData["Title"] = "Product";
 }
 <main>
     <div class="product-container">
-        <img class="product" src="@(Model.PictureUrl)" />
-        <div class="product-description">
-            <br>
-            <p>@Model.Description</p>
+        <img class="product" src="@(Model.PictureUrl)"/>
+        <div class="product-description"><br>
+            <p>@Model.Description</p> 
         </div>
         <div class="product-info">
-            <h2>@Model.Name</h2>
-            <h3>@($"{Model.Price:c}")</h3>
+            <h2>@Model.Shoe.Name</h2>
+            <h3>@($"{Model.Shoe.Price:c}")</h3>
         </div>
         <div class="dropdown-container">
             <label for="size" class="size-label">Size &nbsp;</label>
@@ -25,9 +23,12 @@
             </select>
         </div>
         <div class="button-section">
-            <a id="image-link" class=".image-link" href="https://i.ibb.co/Jspw64C/Skostorlek.png">Size Guide</a>
-            <a href=""><div class="cart-button">ADD TO CART</div></a>
-            <a href=""><div class="buy-button">BUY NOW</div></a>
+            <a href="">
+                <div class="cart-button">ADD TO CART</div>
+            </a>
+            <a href="">
+                <div class="buy-button">BUY NOW</div>
+            </a>
         </div>
     </div>
 

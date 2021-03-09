@@ -14,10 +14,11 @@ namespace hiTommy.Models
         public decimal? SalePrice { get; set; }
         public List<Quantity> Sizes { get; set; }
         public string Description { get; set; }
+
         public string PictureUrl { get; set; }
+
         //Navigation Properties
         public string Brand { get; set; }
         public int BrandId { get; set; }
-
     }
 }
