@@ -90,9 +90,6 @@ namespace HelloTommy.Controllers
                     {
                         _shoesService.AddShoe(shoe);
                     }
-                    
-
-                    return View(myModel);
                 }
             }
             catch (Exception)
@@ -100,7 +97,7 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
-            return View(myModel);
+            return View("Index", myModel);
         }
 
         [Route("delete-shoe")]
@@ -144,7 +141,6 @@ namespace HelloTommy.Controllers
                 {
 
                     _shoesService.DeleteShoeById(id);
-                    return View(myModel);
                 }
             }
             catch (Exception)
@@ -152,7 +148,7 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
-            return View(myModel);
+            return View("Index", myModel);
         }
 
         [Route("add-brand")]
@@ -203,9 +199,6 @@ namespace HelloTommy.Controllers
                     {
                         _brandServices.AddBrand(brand);
                     }
-
-
-                    return View(myModel);
                 }
             }
             catch (Exception)
@@ -213,7 +206,7 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
-            return View(myModel);
+            return View("Index", myModel);
         }
     }
 }
