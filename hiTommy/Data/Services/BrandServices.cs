@@ -39,6 +39,16 @@ namespace hiTommy.Data.Services
             return _brand;
         }
 
+        public BrandWithShoesListViewModel GetShoesByBrandName(string brandName)
+        {
+            var _brand = _context.Brands.Where(n => n.Name == brandName).Select(n => new BrandWithShoesListViewModel
+            {
+                Shoes = n.Shoes
+            }).FirstOrDefault();
+
+            return _brand;
+        }
+
         public void DeleteBrandById(int brandId)
         {
             var _brand = _context.Brands.FirstOrDefault(n => n.Id == brandId);

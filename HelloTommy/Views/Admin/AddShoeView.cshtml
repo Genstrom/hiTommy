@@ -7,14 +7,14 @@
 <head>
 
     @section Styles{
-        <link rel="stylesheet" href="@Url.Content("~/css/contact-page.css")" />
+        <link rel="stylesheet" href="@Url.Content("~/css/admin-sub.css")" />
     }
 
 </head>
 
 
-<div class="form-container">
-    <form id="contact"  method="POST">
+<div class="form-container" id="auto-height">
+    <form id="contact" method="POST">
         <h1>Add a new shoe</h1>
         <h4>Super secret admin site</h4>
         <fieldset>
@@ -41,4 +41,13 @@
             <input type="submit" value="Send" name="submit" id="contact-submit" data-submit="...Sending">
         </fieldset>
     </form>
+
+    <div class="brand-list-container">
+        <ul>
+            @foreach (var brand in Model.Brand)
+            {
+                <li>Brand: @brand.Name   Id: @brand.Id </li>
+            }
+        </ul>
+    </div>
 </div>
