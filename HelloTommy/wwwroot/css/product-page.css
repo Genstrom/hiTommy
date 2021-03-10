@@ -67,7 +67,7 @@
     bottom: 0.8rem;
 }
 
-select {
+.product-select {
     width: 15rem;
     height: 1.5rem;
     position: relative;

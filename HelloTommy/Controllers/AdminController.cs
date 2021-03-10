@@ -1,28 +1,25 @@
-using System;
-using System.Dynamic;
-using System.Net;
-using System.Net.Mail;
-using HelloTommy.Models;
-using hiTommy.Data.Services;
+﻿using hiTommy.Data.Services;
 using hiTommy.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Dynamic;
 
 namespace HelloTommy.Controllers
 {
-    public class ContactController : Controller
+    [Route("admin")]
+    public class AdminController : Controller
     {
         public BrandServices _brandServices;
 
         public ShoeServices _shoesService;
 
-        public ContactController(BrandServices brandServices, ShoeServices shoesService)
+        public AdminController(BrandServices brandServices, ShoeServices shoesService)
         {
             _brandServices = brandServices;
             _shoesService = shoesService;
         }
 
 
-        [Route("{contact}")]
         [HttpGet]
         public IActionResult Index()
         {
@@ -41,15 +38,34 @@ namespace HelloTommy.Controllers
             return View(myModel);
         }
 
-        [HttpPost]
-        public ActionResult Index(string name, string email, string message, string subject)
+        [Route("add-shoe")]
+        [HttpGet]
+        public IActionResult AddShoeView()
         {
             var allShoesVm = new ShoeListViewModel
             {
                 Shoes = _shoesService.GetAllShoes()
             };
             var allBrandsVM = _brandServices.GetAllBrands();
-           
+
+            dynamic myModel = new ExpandoObject();
+
+            myModel.AllShoes = allShoesVm.Shoes;
+            myModel.Brand = allBrandsVM;
+
+
+            return View(myModel);
+        }
+        [Route("add-shoe")]
+        [HttpPost]
+        public ActionResult AddShoeView(string name, int price, int brandId, string picture, string description)
+        {
+            var allShoesVm = new ShoeListViewModel
+            {
+                Shoes = _shoesService.GetAllShoes()
+            };
+            var allBrandsVM = _brandServices.GetAllBrands();
+
 
             dynamic myModel = new ExpandoObject();
 
@@ -60,28 +76,20 @@ namespace HelloTommy.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var senderEmail = new MailAddress("hellotommyshoe@gmail.com", "HelloTommyShoes");
-                    var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
-                    var password = "ITHS2020!";
-                    var sub = subject;
-                    var body = $"From Name: {name} Email:{email} \n{message}";
-                    var smtp = new SmtpClient
+                    var shoe = new ShoeViewModel()
                     {
-                        Host = "smtp.gmail.com",
-                        Port = 587,
-                        EnableSsl = true,
-                        DeliveryMethod = SmtpDeliveryMethod.Network,
-                        UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential(senderEmail.Address, password)
+                        Name = name,
+                        Price = price,
+                        BrandId = brandId,
+                        PictureUrl = picture,
+                        Description = description
                     };
-                    using (var mess = new MailMessage(senderEmail, receiverEmail)
+
+                    if (!string.IsNullOrWhiteSpace(shoe.Description))
                     {
-                        Subject = sub,
-                        Body = body
-                    })
-                    {
-                        smtp.Send(mess);
+                        _shoesService.AddShoe(shoe);
                     }
+                    
 
                     return View(myModel);
                 }
@@ -95,3 +103,4 @@ namespace HelloTommy.Controllers
         }
     }
 }
+
