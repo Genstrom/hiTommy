@@ -1,4 +1,5 @@
-﻿@model dynamic
+﻿@using HelloTommy.Controllers
+@model dynamic
 @{
 
 }
@@ -15,7 +16,8 @@
     <link rel="stylesheet" href="~/css/header.css" />
     <link rel="stylesheet" href="~/css/navbar.css" />
     <link rel="stylesheet" href="~/css/product-page.css" />
-    @RenderSection("Styles", false)
+    <link rel="stylesheet" href="~/Shared/navbar.cshtml">
+    @{ RenderSection("Styles", false); }
 </head>
 <body>
     <header>
@@ -27,21 +29,9 @@
             </a>
         </div>
 
-        <nav>
-            <div class="box box-navbar">
-                <ul class="nav-items">
-                    <li>
-                        <a href="/" Home">All</a>
-                    </li>
-                    @for (var i = 0; i < Model.Brand.Count; i++)
-                    {
-                        <li>
-                            <a href="/Brand/@Model.Brand[i].Id/">@Model.Brand[i].Name</a>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </nav>
+    
+            @Html.Partial("_myMenuLayout")
+
     </header>
 
     <div class="wrapper">

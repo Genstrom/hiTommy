@@ -32,7 +32,7 @@ namespace HelloTommy.Controllers
 
             dynamic mymodel = new ExpandoObject();
             mymodel.AllShoes = allShoesVm.Shoes;
-            mymodel.Brand = allBrandsVm;
+          
 
             return View(mymodel);
         }
@@ -41,6 +41,12 @@ namespace HelloTommy.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+        }
+
+        [HttpGet]
+        public IActionResult GetData()
+        {
+            return View();
         }
     }
 }
