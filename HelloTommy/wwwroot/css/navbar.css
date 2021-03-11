@@ -28,3 +28,9 @@
     margin: 0.5rem 3rem;
     font-size: 2rem;
 }
+
+.nav-items a {
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 0.5rem;
+    font-size: 1.2rem;
+}
