@@ -9,19 +9,19 @@ using hiTommy.Data.ViewModels;
 
 namespace HelloTommy.Controllers
 {
-    [Route("_myMenuLayout")]
-    public class MyMenuLayoutController : Controller
+    
+    [Route("AllProducts")]
+    public class AllProductsController : Controller
     {
         private readonly BrandServices _brandServices;
         private readonly ShoeServices _shoesService;
 
-        public MyMenuLayoutController(BrandServices brandServices, ShoeServices shoeServices)
+        public AllProductsController(ShoeServices shoeService, BrandServices brandServices)
         {
+            _shoesService = shoeService;
             _brandServices = brandServices;
-            _shoesService = shoeServices;
-
         }
-        public IActionResult _MyMenuLayout()
+        public IActionResult Index()
         {
             var allShoesVm = new ShoeListViewModel
             {
@@ -33,7 +33,8 @@ namespace HelloTommy.Controllers
             mymodel.AllShoes = allShoesVm.Shoes;
             mymodel.Brand = allBrandsVm;
 
-            return View("_MyMenuLayout",mymodel);
+
+            return View(mymodel);
         }
     }
 }
