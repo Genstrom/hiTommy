@@ -11,10 +11,12 @@
     <title>@ViewData["Title"]</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     @*<link rel="stylesheet" href="~/css/site.css" />*@
+    @*<link rel="stylesheet" href="~/css/product-page.css" />*@
     <link rel="stylesheet" href="~/css/style.css" />
-       <link rel="stylesheet" href="~/css/header.css" />
-        <link rel="stylesheet" href="~/css/navbar.css" />
-        @*<link rel="stylesheet" href="~/css/product-page.css" />*@
+    <link rel="stylesheet" href="~/css/header.css" />
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     @RenderSection("Styles", false)
 </head>
 <body>
@@ -22,7 +24,7 @@
         <div class="box box-header">
             <a href="/" Home>
                 <h1>
-                    Lorem, ipsum.
+                    SNEAKERS
                 </h1>
             </a>
         </div>
@@ -45,29 +47,29 @@
     </header>
 
     <div class="wrapper">
-    <main>@RenderBody()</main>
+        <main>@RenderBody()</main>
 
-    <footer>
-        <div class="footer-container">
-            <ul class="footer-items">
-                <li>
-                    <a href="/About">About Us</a>
-                </li>
-                <li>
-                    <a href="/Contact">Contact</a>
-                </li>
-                <li>
-                    <a href="/FAQ">FAQ</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-    @*</div>*@
+        <footer>
+            <div class="footer-container">
+                <ul class="footer-items">
+                    <li>
+                        <a href="/About">About Us</a>
+                    </li>
+                    <li>
+                        <a href="/Contact">Contact</a>
+                    </li>
+                    <li>
+                        <a href="/FAQ">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        @*</div>*@
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", false)
+        @await RenderSectionAsync("Scripts", false)
 </body>
 </html>

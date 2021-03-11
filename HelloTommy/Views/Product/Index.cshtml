@@ -2,11 +2,17 @@
 @{
     ViewData["Title"] = "Product";
 }
+
+@section Styles{
+    <link rel="stylesheet" href="@Url.Content("~/css/product-page.css")">
+}
+
 <main>
     <div class="product-container">
-        <img class="product" src="@(Model.Shoe.PictureUrl)"/>
-        <div class="product-description"><br>
-            <p>@Model.Shoe.Description</p> 
+        <img class="product" src="@(Model.Shoe.PictureUrl)" />
+        <div class="product-description">
+            <br>
+            <p>@Model.Shoe.Description</p>
         </div>
         <div class="product-info">
             <h2>@Model.Shoe.Name</h2>
@@ -22,8 +28,7 @@
                 <option value="42">42</option>
             </select>
         </div>
-        <div class="button-section">          
-            @*<a id="image-button" href="https://i.ibb.co/Jspw64C/Skostorlek.png">Size Guide</a>*@
+        <div class="button-section">
             <a href="">
                 <div class="cart-button">ADD TO CART</div>
             </a>
