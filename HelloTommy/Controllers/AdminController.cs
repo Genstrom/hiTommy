@@ -59,7 +59,7 @@ namespace HelloTommy.Controllers
 
         [Route("add-shoe")]
         [HttpPost]
-        public ActionResult AddShoeView(string name, int price, int brandId, string picture, string description)
+        public ActionResult Index(string name, int price, int brandId, string picture, string description)
         {
             var allShoesVm = new ShoeListViewModel
             {
