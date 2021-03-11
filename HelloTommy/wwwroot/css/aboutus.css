@@ -30,7 +30,7 @@
 }
 
 .infobox:nth-child(2) {
-    background-image: url("../images/parallax1.jpg");
+    background-image: url("https://imgur.com/uS9jBnc");
     background-size: cover;
     height: 1280px;
 }
@@ -42,7 +42,7 @@
 }
 
 .infobox:nth-child(4) {
-    background-image: url("../images/parallax2.jpg");
+    background-image: url("https://imgur.com/5u239Ku");
     background-size: cover;
     height: 1280px;
 }
@@ -54,7 +54,7 @@
 }
 
 .infobox:nth-child(6) {
-    background-image: url("../images/parallax3.jpg");
+    background-image: url("https://imgur.com/OqgGboD");
     background-size: cover;
     height: 1280px;
 }
