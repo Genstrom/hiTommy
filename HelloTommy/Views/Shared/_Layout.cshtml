@@ -12,9 +12,9 @@
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     @*<link rel="stylesheet" href="~/css/site.css" />*@
     <link rel="stylesheet" href="~/css/style.css" />
-    <link rel="stylesheet" href="~/css/header.css" />
-    <link rel="stylesheet" href="~/css/navbar.css" />
-    <link rel="stylesheet" href="~/css/product-page.css" />
+       <link rel="stylesheet" href="~/css/header.css" />
+        <link rel="stylesheet" href="~/css/navbar.css" />
+        @*<link rel="stylesheet" href="~/css/product-page.css" />*@
     @RenderSection("Styles", false)
 </head>
 <body>
@@ -45,24 +45,24 @@
     </header>
 
     <div class="wrapper">
-        <main>@RenderBody()</main>
+    <main>@RenderBody()</main>
 
-        <footer>
-            <div class="footer-container">
-                <ul class="footer-items">
-                    <li>
-                        <a href="/About">About Us</a>
-                    </li>
-                    <li>
-                        <a href="/Contact">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/FAQ">FAQ</a>
-                    </li>
-                </ul>
-            </div>
-        </footer>
-    </div>
+    <footer>
+        <div class="footer-container">
+            <ul class="footer-items">
+                <li>
+                    <a href="/About">About Us</a>
+                </li>
+                <li>
+                    <a href="/Contact">Contact</a>
+                </li>
+                <li>
+                    <a href="/FAQ">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    @*</div>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
