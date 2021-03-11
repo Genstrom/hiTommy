@@ -56,6 +56,7 @@ namespace HelloTommy.Controllers
 
             return View(myModel);
         }
+
         [Route("add-shoe")]
         [HttpPost]
         public ActionResult Index(string name, int price, int brandId, string picture, string description)
@@ -89,9 +90,6 @@ namespace HelloTommy.Controllers
                     {
                         _shoesService.AddShoe(shoe);
                     }
-                    
-
-                    return View(myModel);
                 }
             }
             catch (Exception)
@@ -99,7 +97,116 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
+            return View("Index", myModel);
+        }
+
+        [Route("delete-shoe")]
+        [HttpGet]
+        public IActionResult DeleteShoeView()
+        {
+            var allShoesVm = new ShoeListViewModel
+            {
+                Shoes = _shoesService.GetAllShoes()
+            };
+            var allBrandsVM = _brandServices.GetAllBrands();
+
+            dynamic myModel = new ExpandoObject();
+
+            myModel.AllShoes = allShoesVm.Shoes;
+            myModel.Brand = allBrandsVM;
+
+
             return View(myModel);
+        }
+
+        [Route("delete-shoe")]
+        [HttpPost]
+        public ActionResult DeleteShoeView(int id)
+        {
+            var allShoesVm = new ShoeListViewModel
+            {
+                Shoes = _shoesService.GetAllShoes()
+            };
+            var allBrandsVM = _brandServices.GetAllBrands();
+
+
+            dynamic myModel = new ExpandoObject();
+
+            myModel.AllShoes = allShoesVm.Shoes;
+            myModel.Brand = allBrandsVM;
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+
+                    _shoesService.DeleteShoeById(id);
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Some Error";
+            }
+
+            return View("Index", myModel);
+        }
+
+        [Route("add-brand")]
+        [HttpGet]
+        public IActionResult AddBrandView()
+        {
+            var allShoesVm = new ShoeListViewModel
+            {
+                Shoes = _shoesService.GetAllShoes()
+            };
+            var allBrandsVM = _brandServices.GetAllBrands();
+
+            dynamic myModel = new ExpandoObject();
+
+            myModel.AllShoes = allShoesVm.Shoes;
+            myModel.Brand = allBrandsVM;
+
+
+            return View(myModel);
+        }
+
+        [Route("add-brand")]
+        [HttpPost]
+        public ActionResult AddBrandView(string name)
+        {
+            var allShoesVm = new ShoeListViewModel
+            {
+                Shoes = _shoesService.GetAllShoes()
+            };
+            var allBrandsVM = _brandServices.GetAllBrands();
+
+
+            dynamic myModel = new ExpandoObject();
+
+            myModel.AllShoes = allShoesVm.Shoes;
+            myModel.Brand = allBrandsVM;
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var brand = new BrandVm()
+                    {
+                        Name = name,
+                    };
+
+                    if (!string.IsNullOrWhiteSpace(brand.Name))
+                    {
+                        _brandServices.AddBrand(brand);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.Error = "Some Error";
+            }
+
+            return View("Index", myModel);
         }
     }
 }

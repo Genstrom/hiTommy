@@ -18,19 +18,14 @@ namespace HelloTommy.Controllers
             Context = context;
         }
 
-        [Route("{brandId:int}")]
-        public IActionResult Index(int brandId)
+        [Route("{brandName}")]
+        public IActionResult Index(string brandName)
         {
-            var brandsById = new BrandWithShoesListViewModel
-            {
-                Shoes = BrandServices.GetShoesByBrandId(brandId).Shoes,
-                Id = brandId,
-                Brand = BrandServices.GetAllBrands().Find(n => n.Id == brandId)
-            };
+            var shoeList = BrandServices.GetShoesByBrandName(brandName);
             var allBrandsVm = BrandServices.GetAllBrands();
 
             dynamic mymodel = new ExpandoObject();
-            mymodel.Shoes = brandsById.Shoes;
+            mymodel.Shoes = shoeList.Shoes;
             mymodel.Brand = allBrandsVm;
 
             return View(mymodel);

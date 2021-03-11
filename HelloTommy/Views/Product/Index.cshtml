@@ -2,11 +2,17 @@
 @{
     ViewData["Title"] = "Product";
 }
+
+@section Styles{
+    <link rel="stylesheet" href="@Url.Content("~/css/product-page.css")">
+}
+
 <main>
     <div class="product-container">
-        <img class="product" src="@(Model.Shoe.PictureUrl)"/>
-        <div class="product-description"><br>
-            <p>@Model.Shoe.Description</p> 
+        <img class="product" src="@(Model.Shoe.PictureUrl)" />
+        <div class="product-description">
+            <br>
+            <p>@Model.Shoe.Description</p>
         </div>
         <div class="product-info">
             <h2>@Model.Shoe.Name</h2>

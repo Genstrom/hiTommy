@@ -1,5 +1,4 @@
-﻿@using HelloTommy.Controllers
-@model dynamic
+﻿@model dynamic
 @{
 
 }
@@ -12,26 +11,39 @@
     <title>@ViewData["Title"]</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     @*<link rel="stylesheet" href="~/css/site.css" />*@
+    @*<link rel="stylesheet" href="~/css/product-page.css" />*@
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/header.css" />
     <link rel="stylesheet" href="~/css/navbar.css" />
-    <link rel="stylesheet" href="~/css/product-page.css" />
-    <link rel="stylesheet" href="~/Shared/navbar.cshtml">
-    @{ RenderSection("Styles", false); }
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    @RenderSection("Styles", false)
 </head>
 <body>
     <header>
         <div class="box box-header">
             <a href="/" Home>
                 <h1>
-                    Lorem, ipsum.
+                    SNEAKERS
                 </h1>
             </a>
         </div>
 
-    
-            @Html.Partial("_myMenuLayout")
-
+        <nav>
+            <div class="box box-navbar">
+                <ul class="nav-items">
+                    <li>
+                        <a href="/" Home">All</a>
+                    </li>
+                    @for (var i = 0; i < Model.Brand.Count; i++)
+                    {
+                        <li>
+                            <a href="/Brand/@Model.Brand[i].Name/">@Model.Brand[i].Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <div class="wrapper">
@@ -41,7 +53,7 @@
             <div class="footer-container">
                 <ul class="footer-items">
                     <li>
-                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">About Us</a>
+                        <a href="/About">About Us</a>
                     </li>
                     <li>
                         <a href="/Contact">Contact</a>
@@ -52,12 +64,12 @@
                 </ul>
             </div>
         </footer>
-    </div>
+        @*</div>*@
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", false)
+        @await RenderSectionAsync("Scripts", false)
 </body>
 </html>

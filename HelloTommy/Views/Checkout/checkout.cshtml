@@ -1,0 +1,206 @@
+@model dynamic
+@{ ViewData["Title"] = "Checkout";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="@Url.Content("~/css/checkout.css")">
+}
+
+<div class="main-container">
+    <h3>Checkout Page</h3>
+
+    <section class="checkout-container">
+        <div class="selectedProducts-container">
+            <h5>Selected products</h5>
+            <div class="product-container">
+                <div id="" class="product-item">
+                    <div>
+                        <input type="number" id="tentacles" name="tentacles" min="0" value="0" max="50">
+                    </div>
+                    <div>
+                        <p class="product-name"> Nike Air Force 1 </p>
+                    </div>
+                    <div>
+                        <p class="product-price"> 15 000 SEK</p>
+                    </div>
+                    <div>
+                        <button id="" class="productDetails-btn">Detials</button>
+                    </div>
+                </div>
+                <div class="details-container hidden">
+                    <div>
+                        <p class="product-type"> Shoe for men </p>
+                    </div>
+                    <div>
+                        <p class="product-size"> EU: 42 </p>
+                    </div>
+                    <div>
+                        <p class="product-color"> Color: default</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="product-item">
+                    <div>
+                        <input type="number" id="tentacles" name="tentacles" min="0" value="0" max="50">
+                    </div>
+                    <div>
+                        <p class="product-name"> Nike Air Force 1 </p>
+                    </div>
+                    <div>
+                        <p class="product-price"> 15 000 SEK</p>
+                    </div>
+                    <div>
+                        <button class="productDetails-btn">Detials</button>
+                    </div>
+                </div>
+                <div id="" class="details-container hidden">
+                    <div>
+                        <p class="product-type"> Shoe for men </p>
+                    </div>
+                    <div>
+                        <p class="product-size"> EU: 42 </p>
+                    </div>
+                    <div>
+                        <p class="product-color"> Color: default</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="product-item">
+                    <div>
+                        <input type="number" id="tentacles" name="tentacles" min="0" value="0" max="50">
+                    </div>
+                    <div>
+                        <p class="product-name"> Nike Air Force 1 </p>
+                    </div>
+                    <div>
+                        <p class="product-price"> 15 000 SEK</p>
+                    </div>
+                    <div>
+                        <button class="productDetails-btn">Detials</button>
+                    </div>
+                </div>
+                <div id="" class="details-container hidden">
+                    <div>
+                        <p class="product-type"> Shoe for men </p>
+                    </div>
+                    <div>
+                        <p class="product-size"> EU: 42 </p>
+                    </div>
+                    <div>
+                        <p class="product-color"> Color: default</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="product-item">
+                    <div>
+                        <input type="number" id="tentacles" name="tentacles" min="0" value="0" max="50">
+                    </div>
+                    <div>
+                        <p class="product-name"> Nike Air Force 1 </p>
+                    </div>
+                    <div>
+                        <p class="product-price"> 15 000 SEK</p>
+                    </div>
+                    <div>
+                        <button class="productDetails-btn">Detials</button>
+                    </div>
+                </div>
+                <div id="" class="details-container hidden">
+                    <div>
+                        <p class="product-type"> Shoe for men </p>
+                    </div>
+                    <div>
+                        <p class="product-size"> EU: 42 </p>
+                    </div>
+                    <div>
+                        <p class="product-color"> Color: default</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="product-item">
+                    <div>
+                        <input type="number" id="tentacles" name="tentacles" min="0" value="0" max="50">
+                    </div>
+                    <div>
+                        <p class="product-name"> Nike Air Force 1 </p>
+                    </div>
+                    <div>
+                        <p class="product-price"> 15 000 SEK</p>
+                    </div>
+                    <div>
+                        <button class="productDetails-btn">Detials</button>
+                    </div>
+                </div>
+                <div id="" class="details-container hidden">
+                    <div>
+                        <p class="product-type"> Shoe for men </p>
+                    </div>
+                    <div>
+                        <p class="product-size"> EU: 42 </p>
+                    </div>
+                    <div>
+                        <p class="product-color"> Color: default</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <a class="back" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="back">&#8592; Back to store</a>
+        </div>
+
+        <div class="payment-container">
+            <div class="paymentMethod-container">
+                <select name="pets" id="pet-select">
+                    <option value="">--Please choose payment method--</option>
+                    <option value="visa">Dog</option>
+                    <option value="mastercard">Cat</option>
+                    <option value="poop">Hamster</option>
+                    <option value="#">Parrot</option>
+                </select>
+                <label for="firstName">Card number</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="firstName">Card expirationdate</label>
+                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="billingInformation-container">
+                <label for="firstName">First name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="firstName">Last name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="firstName">Billing address</label>
+                <input type="text" id="name" name="name" required>
+                <label for="firstName">City</label>
+                <input type="text" id="name" name="name" required>
+
+
+                <label for="firstName">Zip or postal code</label>
+                <input type="text" id="name" name="name" required>
+                <!-- Dropdown -->
+                <input type="text" id="name" name="name" required>
+
+
+                <label for="firstName">Phone number</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="totalPayment-container">
+                <div class="totalSum">
+                    <h5>Total sum</h5>
+                    <h5 id="sum">247 800 SEK</h5>
+                </div>
+                <button><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="back">Checkout</a></button>
+            </div>
+        </div>
+    </section>
+</div>
+
+@section Scripts{
+    <script src="@Url.Content("~/js/checkout.js")"></script>
+}
