@@ -15,10 +15,10 @@
             <div class="product-container">
                 <div id="" class="product-item">
                     <div>
-                        <p class="product-name"> Nike Air Force 1 </p>
+                        <p class="product-name">@Model.Shoe.Name</p>
                     </div>
                     <div>
-                        <p class="product-price"> 15 000 SEK</p>
+                        <p class="product-price">@Model.Shoe.Price</p>
                     </div>
                     <div>
                         <button id="" class="productDetails-btn">Details</button>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="details-container hidden">
                     <div>
-                        <p class="product-type"> Shoe for men </p>
+                        <p class="product-description"> @Model.Shoe.Descriptionb</p>
                     </div>
                     <div>
                         <p class="product-size"> EU: 42 </p>
@@ -69,7 +69,7 @@
             <div class="totalPayment-container">
                 <div class="totalSum">
                     <h5>Total sum</h5>
-                    <h5 id="sum">247 800 SEK</h5>
+                    <h5 id="sum">@Model.Shoe.Price</h5>
                 </div>
                 <button><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="back">Checkout</a></button>
             </div>
