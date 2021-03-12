@@ -41,28 +41,5 @@ namespace HelloTommy.Controllers
             return View(myModel);
         }
 
-        [HttpPost]
-        public ActionResult Checkout(int shoeId)
-        {
-           
-            
-            var allBrandsVM = _brandServices.GetAllBrands();
-
-            var _shoe = _shoesService.GetShoeById(shoeId);
-
-
-
-           
-            dynamic myModel = new ExpandoObject();
-
-            myModel.Shoe = _shoe;
-            myModel.Brand = allBrandsVM;
-
-
-            return View(myModel);
-        }
-
-
-
     }
 }

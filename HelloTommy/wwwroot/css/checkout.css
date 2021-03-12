@@ -6,9 +6,10 @@
 }
 .main-container h3 {
     font-size: 4rem;
-    margin-left: calc(4rem + 5rem);
+    /*margin-left: calc(4rem + 5rem);*/
     margin-top: 3rem;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 
@@ -17,7 +18,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 0 5rem;
+    /*margin: 0 5rem;*/
+    margin-left: 50rem;
 }
 
     .checkout-container > div {
@@ -33,6 +35,7 @@
     .selectedProducts-container h5 {
         font-size: 2rem;
         margin: 3rem 0;
+        text-align: center;
     }
 
     .selectedProducts-container .back {
@@ -112,4 +115,25 @@
 
 .hidden {
     display: none;
+}
+
+.payment-container {
+    margin-top: 5rem;
+}
+
+input#firstName, input#lastName, input#billing, input#city, input#postal, input#phone {
+    width: 10rem;
+}
+
+.paymentMethod-container {
+    display: flex;
+    flex-direction: column;
+}
+.billingInformation-container {
+    display: flex;
+    flex-direction: column;
+}
+
+select#payment-method{
+    width: 10rem;
 }
