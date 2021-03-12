@@ -21,7 +21,7 @@ namespace HelloTommy.Controllers
             _brandServices = brandServices;
             _shoesService = shoesService;
         }
-        
+
         public IActionResult Checkout()
         {
             var allShoesVm = new ShoeListViewModel
@@ -38,6 +38,5 @@ namespace HelloTommy.Controllers
 
             return View(myModel);
         }
-
     }
 }
