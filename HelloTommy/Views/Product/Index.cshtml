@@ -33,9 +33,12 @@
             <a href="">
                 <div class="cart-button">ADD TO CART</div>
             </a>
-            <a href="">
-                <div class="buy-button">BUY NOW</div>
-            </a>
+            
+            <form action="" method="post">
+               <input type="number" name="shoeId" value="@Model.Shoe.Id" />
+                <input type="submit" input formaction="/Checkout" class="buy-button" name="Submit" value="Buy Now"></input>
+            </form>
+         
         </div>
     </div>
 </main>

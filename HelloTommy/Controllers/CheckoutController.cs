@@ -1,5 +1,6 @@
 ﻿using hiTommy.Data.Services;
 using hiTommy.Data.ViewModels;
+using hiTommy.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,8 @@ namespace HelloTommy.Controllers
             _brandServices = brandServices;
             _shoesService = shoesService;
         }
-        
+
+
         public IActionResult Checkout()
         {
             var allShoesVm = new ShoeListViewModel
@@ -38,6 +40,29 @@ namespace HelloTommy.Controllers
 
             return View(myModel);
         }
+
+        [HttpPost]
+        public ActionResult Checkout(int shoeId)
+        {
+           
+            
+            var allBrandsVM = _brandServices.GetAllBrands();
+
+            var _shoe = _shoesService.GetShoeById(shoeId);
+
+
+
+           
+            dynamic myModel = new ExpandoObject();
+
+            myModel.Shoe = _shoe;
+            myModel.Brand = allBrandsVM;
+
+
+            return View(myModel);
+        }
+
+
 
     }
 }
