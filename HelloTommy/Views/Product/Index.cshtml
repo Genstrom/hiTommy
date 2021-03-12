@@ -20,24 +20,23 @@
             <h3>@($"{Model.Shoe.Price:c}")</h3>
         </div>
         <div class="dropdown-container">
+            <form action="/Checkout" method="post">
             <label for="size" class="size-label">Size &nbsp;</label>
-            <select name="Size" id="Size" class="product-select">
+            <select name="size" id="size" class="product-select">
                 @for (int i = 0; i < Model.Shoe.Sizes.Count; i++)
                 {
-                    <option value="size">@($"{Model.Shoe.Sizes[i].Size}")</option>
+                    <option value=@Model.Shoe.Sizes[i].Size>@($"{Model.Shoe.Sizes[i].Size}")</option>
 
                 }
 
             </select>
-        </div>
-        <div class="button-section">
-
-            <form action="" method="post">
-                <input type="number" name="shoeId" value="@Model.Shoe.Id" />
-                <input type="number" name="Size" value="Size" />
-                <input type="submit" input formaction="/Checkout" class="buy-button" name="Submit" value="Buy Now"></input>
+                <input type="hidden" name="shoeId" value="@Model.Shoe.Id" />
+                <input type="submit" input formaction="/Checkout" class="buy-button" name="Submit" value="Buy Now">
             </form>
-
         </div>
+        @*<div class="button-section">*@
+
+
+        @*</div>*@
     </div>
 </main>
