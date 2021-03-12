@@ -12,7 +12,8 @@ namespace hiTommy.Models
         public decimal Price { get; set; }
         public bool IsOnSale { get; set; }
         public decimal? SalePrice { get; set; }
-        public List<Quantity> Sizes { get; set; }
+        public List<Quantity> Sizes { get;
+           set; }
         public string Description { get; set; }
 
         public string PictureUrl { get; set; }

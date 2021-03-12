@@ -41,7 +41,8 @@ namespace HelloTommy.Controllers
             return View(myModel);
         }
         [HttpPost]
-        public ActionResult Checkout(int shoeId)
+        
+        public ActionResult Checkout(int size, int shoeId)
         {
 
 

@@ -19,9 +19,9 @@ namespace hiTommy.Data.Services
             return _context.Quantities.Where(n => n.Size == size).Select(n => n.Shoe.Name).ToList();
         }
 
-        public List<double> GetAllSizesById(int id)
+        public List<Quantity> GetAllSizesById(int id)
         {
-            return _context.Quantities.Where(n => n.ShoeId == id).Select(n => n.Size).ToList();
+            return _context.Quantities.Where(n => n.ShoeId == id).OrderBy(n => n.Size).ToList();
         }
 
         public Quantity AddQuantityToShoeBySizeAndShoeId(double size, int id, QuantityVm quantity)

@@ -27,6 +27,7 @@ namespace HelloTommy
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ShoeStoreConnectionString));
             services.AddTransient<ShoeServices>();
             services.AddTransient<BrandServices>();
+            services.AddTransient<QuantityService>();
             services.AddDbContext<Data.ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ShoeStoreConnectionString")));

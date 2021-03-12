@@ -121,7 +121,7 @@
     margin-top: 5rem;
 }
 
-input#firstName, input#lastName, input#billing, input#city, input#postal, input#phone {
+input#firstName, input#lastName, input#billing, input#city, input#postal, input#email, input#phone {
     width: 10rem;
 }
 

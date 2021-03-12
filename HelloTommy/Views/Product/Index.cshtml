@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="@Url.Content("~/css/product-page.css")">
 }
 
+
 <main>
     <div class="product-container">
         <img class="product" src="@(Model.Shoe.PictureUrl)" />
@@ -20,25 +21,23 @@
         </div>
         <div class="dropdown-container">
             <label for="size" class="size-label">Size &nbsp;</label>
-            <select name="#" id="size" class="product-select">
-                <option value="38">38</option>
-                <option value="39">39</option>
-                <option value="40">40</option>
-                <option value="41">41</option>
-                <option value="42">42</option>
+            <select name="Size" id="Size" class="product-select">
+                @for (int i = 0; i < Model.Shoe.Sizes.Count; i++)
+                {
+                    <option value="size">@($"{Model.Shoe.Sizes[i].Size}")</option>
+
+                }
+
             </select>
         </div>
-        <div class="button-section">          
-            @*<a id="image-button" href="https://i.ibb.co/Jspw64C/Skostorlek.png">Size Guide</a>*@
-            <a href="">
-                <div class="cart-button">ADD TO CART</div>
-            </a>
-            
+        <div class="button-section">
+
             <form action="" method="post">
                 <input type="number" name="shoeId" value="@Model.Shoe.Id" />
+                <input type="number" name="Size" value="Size" />
                 <input type="submit" input formaction="/Checkout" class="buy-button" name="Submit" value="Buy Now"></input>
             </form>
-         
+
         </div>
     </div>
 </main>

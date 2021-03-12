@@ -12,11 +12,13 @@ namespace HelloTommy.Controllers
     {
         private readonly BrandServices _brandServices;
         private readonly ShoeServices _shoesService;
+        private readonly QuantityService _quantityService;
 
-        public ProductController(ShoeServices shoeServices, BrandServices brandServices)
+        public ProductController(ShoeServices shoeServices, BrandServices brandServices, QuantityService quantityService )
         {
             _shoesService = shoeServices;
             _brandServices = brandServices;
+            _quantityService = quantityService;
         }
 
         [Route("{productId:int}")]
@@ -25,6 +27,7 @@ namespace HelloTommy.Controllers
             
 
                var shoe = _shoesService.GetShoeById(productId);
+            shoe.Sizes = _quantityService.GetAllSizesById(productId);
       
             var allBrandsVm = _brandServices.GetAllBrands();
 
