@@ -29,7 +29,7 @@
                         <p class="product-description">@Model.Shoe.Description</p>
                     </div>
                     <div>
-                        <p class="product-size">@Model.Size</p>
+                        <p class="product-size">Size: @Model.Size</p>
                     </div>
                     <div>
                         <p class="product-image"><img src="@Model.Shoe.PictureUrl"/></p>
@@ -73,7 +73,7 @@
                     <h5>Total sum</h5>
                     <h5 id="sum">@Model.Shoe.Price</h5>
                 </div>
-                <button><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="back">Checkout</a></button>
+                <a href="/OrderConfirmed">Checkout</a>
             </div>
         </div>
     </section>

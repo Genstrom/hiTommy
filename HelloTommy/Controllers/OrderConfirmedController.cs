@@ -1,30 +1,28 @@
+﻿using hiTommy.Data.Services;
+using hiTommy.Data.ViewModels;
+using hiTommy.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using HelloTommy.Models;
-using hiTommy.Data.Services;
-using hiTommy.Data.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace HelloTommy.Controllers
 {
-    [Route("{contact}")]
-    public class ContactController : Controller
+    [Route("orderconfirmed")]
+    public class OrderConfirmedController : Controller
     {
         public BrandServices _brandServices;
 
         public ShoeServices _shoesService;
-
-        public ContactController(BrandServices brandServices, ShoeServices shoesService)
+        public OrderConfirmedController(BrandServices brandServices, ShoeServices shoesService)
         {
             _brandServices = brandServices;
             _shoesService = shoesService;
         }
-
-
-        
-     
         public IActionResult Index()
         {
             var allShoesVm = new ShoeListViewModel
@@ -33,24 +31,22 @@ namespace HelloTommy.Controllers
             };
             var allBrandsVM = _brandServices.GetAllBrands();
 
+
             dynamic myModel = new ExpandoObject();
 
             myModel.AllShoes = allShoesVm.Shoes;
             myModel.Brand = allBrandsVM;
-
-
             return View(myModel);
         }
-
         [HttpPost]
-        public ActionResult Index(string name, string email, string message, string subject)
+        public IActionResult Index(Shoe Shoe, string name, string email, string message, string subject)
         {
             var allShoesVm = new ShoeListViewModel
             {
                 Shoes = _shoesService.GetAllShoes()
             };
             var allBrandsVM = _brandServices.GetAllBrands();
-           
+
 
             dynamic myModel = new ExpandoObject();
 
@@ -61,7 +57,7 @@ namespace HelloTommy.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var senderEmail = new MailAddress("hellotommyshoe@gmail.com", "HelloTommyShoes");
+                    var senderEmail = new MailAddress("hitommyorder@gmail.com", "HiTommy Order");
                     var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
                     var password = "ITHS2020!";
                     var sub = subject;
@@ -95,4 +91,7 @@ namespace HelloTommy.Controllers
             return View(myModel);
         }
     }
+
+
 }
+

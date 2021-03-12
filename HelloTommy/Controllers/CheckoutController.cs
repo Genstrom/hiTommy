@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace HelloTommy.Controllers
@@ -62,6 +64,6 @@ namespace HelloTommy.Controllers
 
             return View(myModel);
         }
-
     }
 }
+
