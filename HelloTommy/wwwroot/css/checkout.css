@@ -65,6 +65,10 @@
         background-color: rgb(216, 223, 226);
     }
 
+p.product-price {
+    margin-left: 6rem;
+}
+
 .product-item {
     display: flex;
     margin-bottom: 1.5rem;
