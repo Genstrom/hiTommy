@@ -3,7 +3,7 @@
 const productButtons = document.querySelectorAll('.productDetails-btn');
 const productItems = document.querySelectorAll('.product-item');
 
-const detailsContainer = document.querySelectorAll('.details-container');
+const detailsContainer = document.querySelectorAll('.checkout-details-container');
 
 //Loop through arrays, to give each incrementing name 
 //Product-item
