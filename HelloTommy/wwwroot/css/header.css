@@ -5,13 +5,13 @@
     justify-content: center;
     align-items: center;
     background: #213F44;
-    height: 12vh;
+    height: 16vh;
 }
 
     .box-header h1 {
         font-family: 'Montserrat Subrayada', sans-serif;
         letter-spacing: 0.3rem;
-        font-size: 5rem;
+        font-size: 15rem;
         padding: 1rem;
         color: white;
         transition: all 200ms ease-in-out;

@@ -3,6 +3,7 @@ using System.Dynamic;
 using HelloTommy.Models;
 using hiTommy.Data.Services;
 using hiTommy.Data.ViewModels;
+using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -19,6 +20,20 @@ namespace HelloTommy.Controllers
             _logger = logger;
             _shoesService = shoeService;
             _brandServices = brandServices;
+        }
+        public ActionResult LoginForm()
+        {
+            var allShoesVm = new ShoeListViewModel
+            {
+                Shoes = _shoesService.GetAllShoes()
+            };
+            var allBrandsVm = _brandServices.GetAllBrands();
+
+            dynamic mymodel = new ExpandoObject();
+            mymodel.AllShoes = allShoesVm.Shoes;
+            mymodel.Brand = allBrandsVm;
+
+            return PartialView("_LoginPartial", mymodel);
         }
 
 

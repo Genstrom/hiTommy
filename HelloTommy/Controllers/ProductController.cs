@@ -26,7 +26,7 @@ namespace HelloTommy.Controllers
         {
             
 
-               var shoe = _shoesService.GetShoeById(productId);
+            var shoe = _shoesService.GetShoeById(productId);
             shoe.Sizes = _quantityService.GetAllSizesById(productId);
       
             var allBrandsVm = _brandServices.GetAllBrands();
