@@ -19,6 +19,8 @@ namespace HelloTommy.Controllers
 
         public ShoeServices _shoesService;
 
+        private string baseURL = "https://api.playground.klarna.com/";
+
         public CheckoutController(BrandServices brandServices, ShoeServices shoesService)
         {
             _brandServices = brandServices;
@@ -64,6 +66,28 @@ namespace HelloTommy.Controllers
 
             return View(myModel);
         }
+
+        //[HttpPost]
+        //public ActionResult CheckoutKlarna(int size, int shoeId)
+        //{
+
+
+        //    var allBrandsVM = _brandServices.GetAllBrands();
+
+        //    var _shoe = _shoesService.GetShoeById(shoeId);
+
+
+
+
+        //    dynamic myModel = new ExpandoObject();
+
+        //    myModel.Shoe = _shoe;
+        //    myModel.Brand = allBrandsVM;
+        //    myModel.Size = size;
+
+
+        //    return View(myModel);
+        //}
     }
 }
 

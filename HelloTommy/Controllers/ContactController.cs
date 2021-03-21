@@ -63,7 +63,7 @@ namespace HelloTommy.Controllers
                 {
                     var senderEmail = new MailAddress("hellotommyshoe@gmail.com", "HelloTommyShoes");
                     var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
-                    var password = "ITHS2020!";
+                    var password = "";
                     var sub = subject;
                     var body = $"From Name: {name} Email:{email} \n{message}";
                     var smtp = new SmtpClient

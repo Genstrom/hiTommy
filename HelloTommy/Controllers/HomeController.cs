@@ -58,5 +58,20 @@ namespace HelloTommy.Controllers
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
+
+        public ActionResult LoginForm()
+        {
+            var allShoesVm = new ShoeListViewModel
+            {
+                Shoes = _shoesService.GetAllShoes()
+            };
+            var allBrandsVm = _brandServices.GetAllBrands();
+
+            dynamic mymodel = new ExpandoObject();
+            mymodel.AllShoes = allShoesVm.Shoes;
+            mymodel.Brand = allBrandsVm;           
+
+            return PartialView("_LoginPartial", mymodel);
+        }
     }
 }
