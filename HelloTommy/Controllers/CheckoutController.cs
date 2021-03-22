@@ -26,8 +26,7 @@ namespace HelloTommy.Controllers
         public IActionResult Checkout()
         {
 
-
-            return View();
+            return Redirect("/");
         }
 
         [HttpPost]
