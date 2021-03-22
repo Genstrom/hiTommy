@@ -22,20 +22,8 @@ namespace HelloTommy.Controllers
 
         [HttpGet]
         public IActionResult Index()
-        {
-            var allShoesVm = new ShoeListViewModel
-            {
-                Shoes = _shoesService.GetAllShoes()
-            };
-            var allBrandsVM = _brandServices.GetAllBrands();
-
-            dynamic myModel = new ExpandoObject();
-
-            myModel.AllShoes = allShoesVm.Shoes;
-            myModel.Brand = allBrandsVM;
-
-
-            return View(myModel);
+        {        
+            return View();
         }
 
         [Route("add-shoe")]
@@ -97,7 +85,7 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
-            return View("Index", myModel);
+            return View("Index",myModel);
         }
 
         [Route("delete-shoe")]

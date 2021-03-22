@@ -13,13 +13,13 @@ namespace HelloTommy.Controllers
     [Route("AllProducts")]
     public class AllProductsController : Controller
     {
-        private readonly BrandServices _brandServices;
+
         private readonly ShoeServices _shoesService;
 
-        public AllProductsController(ShoeServices shoeService, BrandServices brandServices)
+        public AllProductsController(ShoeServices shoeService)
         {
             _shoesService = shoeService;
-            _brandServices = brandServices;
+
         }
         public IActionResult Index()
         {
@@ -27,14 +27,14 @@ namespace HelloTommy.Controllers
             {
                 Shoes = _shoesService.GetAllShoes()
             };
-            var allBrandsVm = _brandServices.GetAllBrands();
+ 
 
-            dynamic mymodel = new ExpandoObject();
-            mymodel.AllShoes = allShoesVm.Shoes;
-            mymodel.Brand = allBrandsVm;
+           
+           var AllShoes = allShoesVm.Shoes;
+ 
 
 
-            return View(mymodel);
+            return View(AllShoes);
         }
     }
 }

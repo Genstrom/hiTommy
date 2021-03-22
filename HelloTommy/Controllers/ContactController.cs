@@ -12,51 +12,20 @@ namespace HelloTommy.Controllers
     [Route("{contact}")]
     public class ContactController : Controller
     {
-        public BrandServices _brandServices;
 
-        public ShoeServices _shoesService;
-
-        public ContactController(BrandServices brandServices, ShoeServices shoesService)
-        {
-            _brandServices = brandServices;
-            _shoesService = shoesService;
-        }
 
 
         
      
         public IActionResult Index()
         {
-            var allShoesVm = new ShoeListViewModel
-            {
-                Shoes = _shoesService.GetAllShoes()
-            };
-            var allBrandsVM = _brandServices.GetAllBrands();
-
-            dynamic myModel = new ExpandoObject();
-
-            myModel.AllShoes = allShoesVm.Shoes;
-            myModel.Brand = allBrandsVM;
-
-
-            return View(myModel);
+            return View();
         }
 
         [HttpPost]
         public ActionResult Index(string name, string email, string message, string subject)
         {
-            var allShoesVm = new ShoeListViewModel
-            {
-                Shoes = _shoesService.GetAllShoes()
-            };
-            var allBrandsVM = _brandServices.GetAllBrands();
-           
-
-            dynamic myModel = new ExpandoObject();
-
-            myModel.AllShoes = allShoesVm.Shoes;
-            myModel.Brand = allBrandsVM;
-
+          
             try
             {
                 if (ModelState.IsValid)
@@ -84,7 +53,7 @@ namespace HelloTommy.Controllers
                         smtp.Send(mess);
                     }
 
-                    return View(myModel);
+                    return View();
                 }
             }
             catch (Exception)
@@ -92,7 +61,7 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
-            return View(myModel);
+            return View();
         }
     }
 }
