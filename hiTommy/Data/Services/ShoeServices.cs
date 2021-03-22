@@ -7,9 +7,9 @@ namespace hiTommy.Data.Services
 {
     public class ShoeServices
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HiTommyApplicationDbContext _context;
 
-        public ShoeServices(ApplicationDbContext context)
+        public ShoeServices(HiTommyApplicationDbContext context)
         {
             _context = context;
         }

@@ -8,9 +8,9 @@ namespace hiTommy.Data.Services
 {
     public class OrderService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HiTommyApplicationDbContext _context;
 
-        public OrderService(ApplicationDbContext context)
+        public OrderService(HiTommyApplicationDbContext context)
         {
             _context = context;
         }

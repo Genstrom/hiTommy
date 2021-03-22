@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace hiTommy.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class HiTommyApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public HiTommyApplicationDbContext(DbContextOptions<HiTommyApplicationDbContext> options) : base(options)
         {
         }
 

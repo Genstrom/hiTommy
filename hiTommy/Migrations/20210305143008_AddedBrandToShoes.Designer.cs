@@ -9,7 +9,7 @@ using hiTommy.Data;
 
 namespace hiTommy.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(HiTommyApplicationDbContext))]
     [Migration("20210305143008_AddedBrandToShoes")]
     partial class AddedBrandToShoes
     {
