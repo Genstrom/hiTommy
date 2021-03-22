@@ -15,12 +15,12 @@ namespace HelloTommy.Controllers
     [Route("Checkout")]
     public class CheckoutController : Controller
     {
-        private readonly ShoeServices shoeService;
+        private readonly ShoeServices _shoeService;
         private string baseURL = "https://api.playground.klarna.com/";
 
         public CheckoutController(ShoeServices shoeService)
         {
-            this.shoeService = shoeService;
+            _shoeService = shoeService;
         }
 
         public IActionResult Checkout()
@@ -32,7 +32,7 @@ namespace HelloTommy.Controllers
         [HttpPost]
         public ActionResult Checkout(int size, int shoeId)
         {
-            var _shoe = shoeService.GetShoeById(shoeId);
+            var _shoe = _shoeService.GetShoeById(shoeId);
 
             dynamic myModel = new ExpandoObject();
 
