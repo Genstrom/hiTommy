@@ -15,17 +15,32 @@ namespace HelloTommy.Controllers
     [Route("Checkout")]
     public class CheckoutController : Controller
     {
+        private readonly ShoeServices shoeService;
         private string baseURL = "https://api.playground.klarna.com/";
+
+        public CheckoutController(ShoeServices shoeService)
+        {
+            this.shoeService = shoeService;
+        }
 
         public IActionResult Checkout()
         {
+
+
             return View();
         }
 
         [HttpPost]
         public ActionResult Checkout(int size, int shoeId)
         {
-            return View();
+            var _shoe = shoeService.GetShoeById(shoeId);
+
+            dynamic myModel = new ExpandoObject();
+
+            myModel.Shoe = _shoe;
+            myModel.Size = size;
+
+            return View(myModel);
         }
       
     }

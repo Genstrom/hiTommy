@@ -34,35 +34,9 @@
                 SNEAKERS
             </h1>
         </a>
-
     </div>
-    @await Component.InvokeAsync("NavBar");
-    @**        <div>
-                <ul>
-                    <li>
-                        @{ Html.RenderPartial("_LoginPartial", "Common"); }
-                    </li>
-                </ul>
-            </div>
-
-            <nav>
-                <div class="box box-navbar">
-                    <ul class="nav-items">
-                        <li>
-                            <a href="/AllProducts">All</a>
-                        </li>
-                        @for (var i = 0; i < 3; i++)
-                        {
-                            <li>
-                                <a href="/Brand/@Model.Brand[i].Name/">@Model.Brand[i].Name</a>
-                            </li>
-
-                        }
-                      @*  @{ Html.RenderPartial("_LoginPartial", "Common"); }
-                    </ul>
-                </div>
-            </nav>
-        </header>*@
+    @await Component.InvokeAsync("NavBar")
+        </header>
 
     <div class="wrapper">
         <main>@RenderBody()</main>
