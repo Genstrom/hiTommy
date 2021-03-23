@@ -19,10 +19,9 @@ namespace HelloTommy.Controllers
             _shoesService = shoesService;
         }
 
-
         [HttpGet]
         public IActionResult Index()
-        {        
+        {
             return View();
         }
 
@@ -41,7 +40,6 @@ namespace HelloTommy.Controllers
             myModel.AllShoes = allShoesVm.Shoes;
             myModel.Brand = allBrandsVM;
 
-
             return View(myModel);
         }
 
@@ -54,7 +52,6 @@ namespace HelloTommy.Controllers
                 Shoes = _shoesService.GetAllShoes()
             };
             var allBrandsVM = _brandServices.GetAllBrands();
-
 
             dynamic myModel = new ExpandoObject();
 
@@ -85,7 +82,7 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
-            return View("Index",myModel);
+            return View("Index", myModel);
         }
 
         [Route("delete-shoe")]
@@ -127,7 +124,6 @@ namespace HelloTommy.Controllers
             {
                 if (ModelState.IsValid)
                 {
-
                     _shoesService.DeleteShoeById(id);
                 }
             }
@@ -198,4 +194,3 @@ namespace HelloTommy.Controllers
         }
     }
 }
-

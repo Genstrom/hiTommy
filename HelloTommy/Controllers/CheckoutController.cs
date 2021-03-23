@@ -37,20 +37,7 @@ namespace HelloTommy.Controllers
 
             return Redirect("/");
         }
-
-        //[Route("Checkout")]
-        //[HttpPost]
-        //public ActionResult Index(int size, int shoeId)
-        //{
-        //    var _shoe = shoeService.GetShoeById(shoeId);
-
-        //    dynamic myModel = new ExpandoObject();
-
-        //    myModel.Shoe = _shoe;
-        //    myModel.Size = size;
-
-        //    return View(myModel);
-        //}
+        
 
         [Route("Checkout")]
         [HttpPost]

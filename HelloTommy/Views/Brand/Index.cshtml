@@ -1,6 +1,5 @@
-﻿@model dynamic
-@using System.Linq;
-@using hiTommy.Models;
+﻿@using hiTommy.Models
+@model dynamic
 @{
     ViewData["Title"] = "Brand";
     List<Shoe> shoes = Model.Shoes;
@@ -12,10 +11,10 @@
     {
         <div class="product-card">
             <a href="/Product/@(shoe.Id)" class="product-image">
-                <img src="@(shoe.PictureUrl)" />
+                <img src="@(shoe.PictureUrl)"/>
             </a>
             <a href="/Product/@(shoe.Id)" class="product-image">
-                @shoe.Name <br />
+                @shoe.Name <br/>
                 @($"{shoe.Price:c}")
             </a>
         </div>

@@ -1,10 +1,6 @@
 using System;
-using System.Dynamic;
 using System.Net;
 using System.Net.Mail;
-using HelloTommy.Models;
-using hiTommy.Data.Services;
-using hiTommy.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -13,12 +9,13 @@ namespace HelloTommy.Controllers
     [Route("Contact")]
     public class ContactController : Controller
     {
-        private IConfiguration _config;
+        private readonly IConfiguration _config;
 
         public ContactController(IConfiguration config)
         {
             _config = config;
         }
+
         public IActionResult Index()
         {
             return View();
@@ -27,7 +24,6 @@ namespace HelloTommy.Controllers
         [HttpPost]
         public ActionResult Index(string name, string email, string message, string subject)
         {
-          
             try
             {
                 if (ModelState.IsValid)

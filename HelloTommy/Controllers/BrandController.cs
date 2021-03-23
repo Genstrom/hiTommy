@@ -1,7 +1,6 @@
 ﻿using System.Dynamic;
 using HelloTommy.Data;
 using hiTommy.Data.Services;
-using hiTommy.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HelloTommy.Controllers

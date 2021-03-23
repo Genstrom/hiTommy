@@ -1,22 +1,20 @@
-﻿using hiTommy.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
+using hiTommy.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using static HelloTommy.Models.Klarna;
 
 namespace HelloTommy.Controllers
 {
-
     [Route("OrderConfirmed")]
     public class OrderConfirmedController : Controller
     {
-        private IConfiguration _config;
+        private readonly IConfiguration _config;
 
         public OrderConfirmedController(IConfiguration config)
         {
@@ -27,7 +25,6 @@ namespace HelloTommy.Controllers
         [HttpGet]
         public ActionResult Index(string order_id)
         {
-
             using var client = new HttpClient();
             client.BaseAddress = new Uri("https://api.playground.klarna.com/");
 
@@ -43,6 +40,7 @@ namespace HelloTommy.Controllers
 
             return View(klarna);
         }
+
         [HttpPost]
         public IActionResult Index(Shoe Shoe, string name, string email, string message, string subject)
         {
@@ -84,7 +82,4 @@ namespace HelloTommy.Controllers
             return View();
         }
     }
-
-
 }
-

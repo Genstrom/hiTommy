@@ -1,10 +1,5 @@
 ﻿using hiTommy.Data.Services;
-using hiTommy.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HelloTommy.Views.Shared.Components
 {
@@ -12,8 +7,7 @@ namespace HelloTommy.Views.Shared.Components
     {
         public BrandServices _brandServices;
 
-        public ShoeServices _shoesService;
-        
+
         public NavBarViewComponent(BrandServices brandServices)
         {
             _brandServices = brandServices;
@@ -24,8 +18,5 @@ namespace HelloTommy.Views.Shared.Components
             var brand = _brandServices.GetAllBrands();
             return View(brand);
         }
-
-
-
     }
 }

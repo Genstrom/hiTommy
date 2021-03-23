@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics;
-using System.Dynamic;
 using HelloTommy.Models;
 using hiTommy.Data.Services;
 using hiTommy.Data.ViewModels;
-using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -26,10 +24,10 @@ namespace HelloTommy.Controllers
             {
                 Shoes = _shoesService.GetAllShoes()
             };
-        
-            var AllShoes = allShoesVm.Shoes;
-          
-            return View(AllShoes);
+
+            var allShoes = allShoesVm.Shoes;
+
+            return View(allShoes);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -37,8 +35,5 @@ namespace HelloTommy.Controllers
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
-        
-      
-
     }
 }
