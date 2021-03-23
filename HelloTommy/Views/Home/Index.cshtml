@@ -6,17 +6,21 @@
 }
 
 
-<div class="main-container">       
-        @foreach (var shoe in Model.Take(9))
-        {
-            <div class="product-card">
-                <a href="/Product/@(shoe.Id)" class="product-image">
-                    <img src="@(shoe.PictureUrl)" />
-                </a>
-                <a href="/Product/@(shoe.Id)" class="product-text">
-                    @shoe.Name <br />
-                    @($"{shoe.Price:c}")
-                </a>
-            </div>
-        }
+<div class="main-container">
+    @foreach (var shoe in Model.Take(9))
+    {
+        <div class="product-card">
+            <a href="/Product/@(shoe.Id)" class="product-image">
+                <img src="@(shoe.PictureUrl)" />
+            </a>
+            <a href="/Product/@(shoe.Id)" class="product-text">
+                @shoe.Name <br />
+                @($"{shoe.Price:c}")
+            </a>
+        </div>
+    }
 </div>
+
+
+
+

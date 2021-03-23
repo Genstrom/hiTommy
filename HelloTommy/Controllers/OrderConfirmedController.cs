@@ -1,24 +1,47 @@
-﻿using hiTommy.Data.Services;
-using hiTommy.Data.ViewModels;
-using hiTommy.Models;
+﻿using hiTommy.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
+using System.Diagnostics;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mail;
-using System.Threading.Tasks;
+using System.Text;
+using static HelloTommy.Models.Klarna;
 
 namespace HelloTommy.Controllers
 {
-    [Route("orderconfirmed")]
+
+    [Route("OrderConfirmed")]
     public class OrderConfirmedController : Controller
     {
-        
-        public IActionResult Index()
+        private IConfiguration _config;
+
+        public OrderConfirmedController(IConfiguration config)
         {
-            return View();
+            _config = config;
+        }
+
+        [Route("{order_id?}")]
+        [HttpGet]
+        public ActionResult Index(string order_id)
+        {
+
+            using var client = new HttpClient();
+            client.BaseAddress = new Uri("https://api.playground.klarna.com/");
+
+            var request = new HttpRequestMessage(HttpMethod.Get, $"checkout/v3/orders/{order_id}");
+            request.Content = new StringContent("", Encoding.UTF8, "application/json");
+            client.DefaultRequestHeaders.Add("Authorization", "Basic " + _config["KlarnaAuth"]);
+
+            var result = client.SendAsync(request);
+
+            var resultString = result.Result.Content.ReadAsStringAsync();
+
+            var klarna = JsonConvert.DeserializeObject<Rootobject>(resultString.Result);
+
+            return View(klarna);
         }
         [HttpPost]
         public IActionResult Index(Shoe Shoe, string name, string email, string message, string subject)
@@ -27,9 +50,9 @@ namespace HelloTommy.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var senderEmail = new MailAddress("hitommyorder@gmail.com", "HiTommy Order");
-                    var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
-                    var password = "";
+                    var senderEmail = new MailAddress(_config["SenderEmail"], "HiTommy Order");
+                    var receiverEmail = new MailAddress(_config["EmailName"], "Receiver");
+                    var password = _config["EmailPasswword"];
                     var sub = subject;
                     var body = $"From Name: {name} Email:{email} \n{message}";
                     var smtp = new SmtpClient

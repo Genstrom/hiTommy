@@ -6,17 +6,19 @@ using HelloTommy.Models;
 using hiTommy.Data.Services;
 using hiTommy.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace HelloTommy.Controllers
 {
-    [Route("{contact}")]
+    [Route("Contact")]
     public class ContactController : Controller
     {
+        private IConfiguration _config;
 
-
-
-        
-     
+        public ContactController(IConfiguration config)
+        {
+            _config = config;
+        }
         public IActionResult Index()
         {
             return View();
@@ -30,9 +32,9 @@ namespace HelloTommy.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var senderEmail = new MailAddress("hellotommyshoe@gmail.com", "HelloTommyShoes");
-                    var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
-                    var password = "";
+                    var senderEmail = new MailAddress(_config["EmailName"], "HelloTommyShoes");
+                    var receiverEmail = new MailAddress(_config["EmailName"], "Receiver");
+                    var password = _config["EmailPassword"];
                     var sub = subject;
                     var body = $"From Name: {name} Email:{email} \n{message}";
                     var smtp = new SmtpClient
