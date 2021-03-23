@@ -7,9 +7,9 @@ namespace hiTommy.Data.Services
 {
     public class QuantityService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HiTommyApplicationDbContext _context;
 
-        public QuantityService(ApplicationDbContext context)
+        public QuantityService(HiTommyApplicationDbContext context)
         {
             _context = context;
         }

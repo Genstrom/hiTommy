@@ -10,8 +10,8 @@ using hiTommy.Data;
 namespace hiTommy.Migrations
 {
     [DbContext(typeof(HiTommyApplicationDbContext))]
-    [Migration("20210305142639_AddedForiegnKeyToShoes")]
-    partial class AddedForiegnKeyToShoes
+    [Migration("20210322173119_PassowrdAddedtoCustomer")]
+    partial class PassowrdAddedtoCustomer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,9 @@ namespace hiTommy.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Passowrd")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostalCode")
@@ -116,6 +119,9 @@ namespace hiTommy.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
@@ -173,7 +179,7 @@ namespace hiTommy.Migrations
 
             modelBuilder.Entity("hiTommy.Models.Shoe", b =>
                 {
-                    b.HasOne("hiTommy.Models.Brand", "Brand")
+                    b.HasOne("hiTommy.Models.Brand", null)
                         .WithMany("Shoes")
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -182,8 +188,6 @@ namespace hiTommy.Migrations
                     b.HasOne("hiTommy.Data.Models.Order", null)
                         .WithMany("OrderList")
                         .HasForeignKey("OrderId");
-
-                    b.Navigation("Brand");
                 });
 
             modelBuilder.Entity("hiTommy.Data.Models.Order", b =>

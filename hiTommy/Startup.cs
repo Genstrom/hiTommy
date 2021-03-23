@@ -28,7 +28,7 @@ namespace hiTommy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ConnectionString));
+            services.AddDbContext<HiTommyApplicationDbContext>(options => options.UseSqlServer(ConnectionString));
             //Configure the Services
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,
