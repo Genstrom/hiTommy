@@ -43,10 +43,9 @@ namespace HelloTommy.Controllers
             return View(klarna);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult Index(int ShoeId, string firstName, string lastName, string billing, string city, string postal)
         {
-<<<<<<< HEAD
             var allShoesVm = new ShoeListViewModel
             {
                 Shoes = _shoesService.GetAllShoes()
@@ -58,14 +57,10 @@ namespace HelloTommy.Controllers
 
             myModel.AllShoes = allShoesVm.Shoes;
             myModel.Brand = allBrandsVM;
-
-=======
->>>>>>> 2a4598ab143c501a0c8a096724ecfac1dd3ce2ed
             try
             {
                 if (ModelState.IsValid)
                 {
-<<<<<<< HEAD
                     var senderEmail = new MailAddress("hitommyorder@gmail.com", "HiTommy Order");
                     var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
                     var password = "ITHS2020!";
@@ -81,13 +76,11 @@ namespace HelloTommy.Controllers
                                 $"Billing address - {billing} \n" +
                                 $"City - {city} \n" +
                                 $"Postal code - {postal} \n";
-=======
                     var senderEmail = new MailAddress(_config["SenderEmail"], "HiTommy Order");
                     var receiverEmail = new MailAddress(_config["EmailName"], "Receiver");
                     var password = _config["EmailPasswword"];
                     var sub = subject;
                     var body = $"From Name: {name} Email:{email} \n{message}";
->>>>>>> 2a4598ab143c501a0c8a096724ecfac1dd3ce2ed
                     var smtp = new SmtpClient
                     {
                         Host = "smtp.gmail.com",
@@ -115,6 +108,6 @@ namespace HelloTommy.Controllers
             }
 
             return View();
-        }
+        }*/
     }
 }
