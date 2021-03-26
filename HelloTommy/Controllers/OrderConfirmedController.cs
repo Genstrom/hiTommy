@@ -38,15 +38,16 @@ namespace HelloTommy.Controllers
             myModel.Brand = allBrandsVM;
             return View(myModel);
         }
+
         [HttpPost]
-        public IActionResult Index(Shoe Shoe, string name, string email, string message, string subject)
+        public IActionResult Index(int ShoeId, string firstName, string lastName, string billing, string city, string postal)
         {
             var allShoesVm = new ShoeListViewModel
             {
                 Shoes = _shoesService.GetAllShoes()
             };
             var allBrandsVM = _brandServices.GetAllBrands();
-
+            var shoe = _shoesService.GetShoeById(ShoeId);
 
             dynamic myModel = new ExpandoObject();
 
@@ -60,8 +61,18 @@ namespace HelloTommy.Controllers
                     var senderEmail = new MailAddress("hitommyorder@gmail.com", "HiTommy Order");
                     var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
                     var password = "ITHS2020!";
-                    var sub = subject;
-                    var body = $"From Name: {name} Email:{email} \n{message}";
+                    var sub = "HiTommy Purchase";
+                    var body = $"Hello {firstName} \n" +
+                                $"\n" +
+                                $"Thank you for your recent transaction on HiTommy. \n" +
+                                $"- - - - - - \n" +
+                                $"Your purchased items: \n {shoe.Name} - {shoe.Price.ToString("C2")} \n" +
+                                $"\n" +
+                                $"Billing information: \n" +
+                                $"Full name - {firstName} {lastName} \n" +
+                                $"Billing address - {billing} \n" +
+                                $"City - {city} \n" +
+                                $"Postal code - {postal} \n";
                     var smtp = new SmtpClient
                     {
                         Host = "smtp.gmail.com",

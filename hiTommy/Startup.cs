@@ -18,10 +18,11 @@ namespace hiTommy
         {
             Configuration = configuration;
             ConnectionString = Configuration.GetConnectionString("ShoeStoreConnectionString");
+            ShoeStoreConnectionString = Configuration.GetConnectionString("ShoeStoreConnectionString");
         }
 
         public string ConnectionString { get; set; }
-
+        public string ShoeStoreConnectionString { get; }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -29,6 +30,7 @@ namespace hiTommy
         {
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ConnectionString));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ShoeStoreConnectionString));
             //Configure the Services
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,
