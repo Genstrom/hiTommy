@@ -1,28 +1,20 @@
-﻿@model dynamic
+﻿@model List<hiTommy.Models.Shoe>
 @{
     ViewData["Title"] = "Sneakers";
-    var counter = 0;
-
 }
-<link rel="stylesheet" href="~/css/navbar.css" />
-<link rel="stylesheet" href="~/Shared/navbar.cshtml"/>
+
 
 <div class="main-container">
-
-    @for (var i = 0; i < 9; i++)
+    @foreach (var shoe in Model.Take(9))
     {
-        counter = i + 1;
-        <a href="/Product/@Model.AllShoes[i].Id" class="product-image">
-            <img src="@Model.AllShoes[i].PictureUrl"/>
-        </a>
-        if (counter % 3 == 0 && i != 0)
-        {
-            for (var j = 3; j > 0; j--)
-            {
-                <a href="/Product/@Model.AllShoes[i + 1 - j].Id" class="product-info">
-                    @Model.AllShoes[i + 1 - j].Name<br> @($"{Model.AllShoes[i + 1 - j].Price:c}")
-                </a>
-            }
-        }
+        <div class="product-card">
+            <a href="/Product/@(shoe.Id)" class="product-image">
+                <img src="@(shoe.PictureUrl)"/>
+            </a>
+            <a href="/Product/@(shoe.Id)" class="product-text">
+                @shoe.Name <br/>
+                @($"{shoe.Price:c}")
+            </a>
+        </div>
     }
 </div>

@@ -24,7 +24,7 @@ namespace HelloTommy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ShoeStoreConnectionString));
+            services.AddDbContext<HiTommyApplicationDbContext>(options => options.UseSqlServer(ShoeStoreConnectionString));
             services.AddTransient<ShoeServices>();
             services.AddTransient<BrandServices>();
             services.AddTransient<QuantityService>();
@@ -36,6 +36,16 @@ namespace HelloTommy
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<Data.ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddAuthentication()
+            .AddGoogle(options =>
+            {
+                IConfigurationSection googleAuthNSection =
+                    Configuration.GetSection("Authentication:Google");
+
+                options.ClientId = googleAuthNSection["ClientId"];
+                options.ClientSecret = googleAuthNSection["ClientSecret"];
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

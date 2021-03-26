@@ -1,8 +1,11 @@
-﻿@model dynamic
+﻿
+@using System.Linq;
+@using hiTommy.Models;
 @{
-
+    
 }
 
+@model dynamic
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,33 +21,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
     @RenderSection("Styles", false)
+
 </head>
 <body>
+   
+   
+ 
     <header>
-        <div class="box box-header">
-            <a href="/" Home>
-                <h1>
-                    SNEAKERS
-                </h1>
-            </a>
-        </div>
-
-        <nav>
-            <div class="box box-navbar">
-                <ul class="nav-items">
-                    <li>
-                        <a href="/AllProducts">All</a>
-                    </li>
-                    @for (var i = 0; i < 3; i++)
-                    {
-                        <li>
-                            <a href="/Brand/@Model.Brand[i].Name/">@Model.Brand[i].Name</a>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <div class="box box-header">
+        <a href="/" Home>
+            <h1>
+                HiTommy
+            </h1>
+        </a>
+    </div>
+    @await Component.InvokeAsync("NavBar")
+        </header>
 
     <div class="wrapper">
         <main>@RenderBody()</main>
@@ -64,12 +56,12 @@
                 </ul>
             </div>
         </footer>
-        </div>
+    </div>
 
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
-        @await RenderSectionAsync("Scripts", false)
+    @await RenderSectionAsync("Scripts", false)
 </body>
 </html>

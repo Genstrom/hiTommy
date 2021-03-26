@@ -29,8 +29,12 @@ namespace hiTommy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+<<<<<<< HEAD
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ConnectionString));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(ShoeStoreConnectionString));
+=======
+            services.AddDbContext<HiTommyApplicationDbContext>(options => options.UseSqlServer(ConnectionString));
+>>>>>>> 2a4598ab143c501a0c8a096724ecfac1dd3ce2ed
             //Configure the Services
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,

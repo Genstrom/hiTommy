@@ -2,8 +2,8 @@
 
 namespace HelloTommy.Controllers
 {
-    [Route("faq")]
-    public class FAQController : Controller
+    [Route("Login")]
+    public class LoginController : Controller
     {
         public IActionResult Index()
         {

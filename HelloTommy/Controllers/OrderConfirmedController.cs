@@ -1,47 +1,50 @@
-﻿using hiTommy.Data.Services;
-using hiTommy.Data.ViewModels;
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mail;
+using System.Text;
 using hiTommy.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using static HelloTommy.Models.Klarna;
 
 namespace HelloTommy.Controllers
 {
-    [Route("orderconfirmed")]
+    [Route("OrderConfirmed")]
     public class OrderConfirmedController : Controller
     {
-        public BrandServices _brandServices;
+        private readonly IConfiguration _config;
 
-        public ShoeServices _shoesService;
-        public OrderConfirmedController(BrandServices brandServices, ShoeServices shoesService)
+        public OrderConfirmedController(IConfiguration config)
         {
-            _brandServices = brandServices;
-            _shoesService = shoesService;
+            _config = config;
         }
-        public IActionResult Index()
+
+        [Route("{order_id?}")]
+        [HttpGet]
+        public ActionResult Index(string order_id)
         {
-            var allShoesVm = new ShoeListViewModel
-            {
-                Shoes = _shoesService.GetAllShoes()
-            };
-            var allBrandsVM = _brandServices.GetAllBrands();
+            using var client = new HttpClient();
+            client.BaseAddress = new Uri("https://api.playground.klarna.com/");
 
+            var request = new HttpRequestMessage(HttpMethod.Get, $"checkout/v3/orders/{order_id}");
+            request.Content = new StringContent("", Encoding.UTF8, "application/json");
+            client.DefaultRequestHeaders.Add("Authorization", "Basic " + _config["KlarnaAuth"]);
 
-            dynamic myModel = new ExpandoObject();
+            var result = client.SendAsync(request);
 
-            myModel.AllShoes = allShoesVm.Shoes;
-            myModel.Brand = allBrandsVM;
-            return View(myModel);
+            var resultString = result.Result.Content.ReadAsStringAsync();
+
+            var klarna = JsonConvert.DeserializeObject<Rootobject>(resultString.Result);
+
+            return View(klarna);
         }
 
         [HttpPost]
         public IActionResult Index(int ShoeId, string firstName, string lastName, string billing, string city, string postal)
         {
+<<<<<<< HEAD
             var allShoesVm = new ShoeListViewModel
             {
                 Shoes = _shoesService.GetAllShoes()
@@ -54,10 +57,13 @@ namespace HelloTommy.Controllers
             myModel.AllShoes = allShoesVm.Shoes;
             myModel.Brand = allBrandsVM;
 
+=======
+>>>>>>> 2a4598ab143c501a0c8a096724ecfac1dd3ce2ed
             try
             {
                 if (ModelState.IsValid)
                 {
+<<<<<<< HEAD
                     var senderEmail = new MailAddress("hitommyorder@gmail.com", "HiTommy Order");
                     var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
                     var password = "ITHS2020!";
@@ -73,6 +79,13 @@ namespace HelloTommy.Controllers
                                 $"Billing address - {billing} \n" +
                                 $"City - {city} \n" +
                                 $"Postal code - {postal} \n";
+=======
+                    var senderEmail = new MailAddress(_config["SenderEmail"], "HiTommy Order");
+                    var receiverEmail = new MailAddress(_config["EmailName"], "Receiver");
+                    var password = _config["EmailPasswword"];
+                    var sub = subject;
+                    var body = $"From Name: {name} Email:{email} \n{message}";
+>>>>>>> 2a4598ab143c501a0c8a096724ecfac1dd3ce2ed
                     var smtp = new SmtpClient
                     {
                         Host = "smtp.gmail.com",
@@ -91,7 +104,7 @@ namespace HelloTommy.Controllers
                         smtp.Send(mess);
                     }
 
-                    return View(myModel);
+                    return View();
                 }
             }
             catch (Exception)
@@ -99,10 +112,7 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
-            return View(myModel);
+            return View();
         }
     }
-
-
 }
-

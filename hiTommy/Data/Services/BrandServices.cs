@@ -7,9 +7,9 @@ namespace hiTommy.Data.Services
 {
     public class BrandServices
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HiTommyApplicationDbContext _context;
 
-        public BrandServices(ApplicationDbContext context)
+        public BrandServices(HiTommyApplicationDbContext context)
         {
             _context = context;
         }

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Klarna.Rootobject
+@{
+
     ViewData["Title"] = "OrderConfirmed";
 }
 
@@ -6,23 +8,10 @@
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/header.css" />
     <link rel="stylesheet" href="~/css/navbar.css" />
-    <link rel="stylesheet" href="~/css/orderconfirmed.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
 }
 
-<div class="faq-wrapper">
-    <div class="main-text">
-        <h3>Order Confirmed</h3>
-        <hr>
-    </div>
-
-    <article class="questions-container">
-        <div class="question">
-            <p>Thank you for shopping at HiTommy! Your order has been placed and will be shipped to you as soon as possible</p>
-
-
-        </div>
-    </article>
-
+<div style="padding: 3rem;">
+    @Html.Raw(Model.html_snippet)
 </div>

@@ -1,69 +1,36 @@
 using System;
-using System.Dynamic;
 using System.Net;
 using System.Net.Mail;
-using HelloTommy.Models;
-using hiTommy.Data.Services;
-using hiTommy.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace HelloTommy.Controllers
 {
-    [Route("{contact}")]
+    [Route("Contact")]
     public class ContactController : Controller
     {
-        public BrandServices _brandServices;
+        private readonly IConfiguration _config;
 
-        public ShoeServices _shoesService;
-
-        public ContactController(BrandServices brandServices, ShoeServices shoesService)
+        public ContactController(IConfiguration config)
         {
-            _brandServices = brandServices;
-            _shoesService = shoesService;
+            _config = config;
         }
 
-
-        
-     
         public IActionResult Index()
         {
-            var allShoesVm = new ShoeListViewModel
-            {
-                Shoes = _shoesService.GetAllShoes()
-            };
-            var allBrandsVM = _brandServices.GetAllBrands();
-
-            dynamic myModel = new ExpandoObject();
-
-            myModel.AllShoes = allShoesVm.Shoes;
-            myModel.Brand = allBrandsVM;
-
-
-            return View(myModel);
+            return View();
         }
 
         [HttpPost]
         public ActionResult Index(string name, string email, string message, string subject)
         {
-            var allShoesVm = new ShoeListViewModel
-            {
-                Shoes = _shoesService.GetAllShoes()
-            };
-            var allBrandsVM = _brandServices.GetAllBrands();
-           
-
-            dynamic myModel = new ExpandoObject();
-
-            myModel.AllShoes = allShoesVm.Shoes;
-            myModel.Brand = allBrandsVM;
-
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var senderEmail = new MailAddress("hellotommyshoe@gmail.com", "HelloTommyShoes");
-                    var receiverEmail = new MailAddress("hellotommyshoe@gmail.com", "Receiver");
-                    var password = "";
+                    var senderEmail = new MailAddress(_config["EmailName"], "HelloTommyShoes");
+                    var receiverEmail = new MailAddress(_config["EmailName"], "Receiver");
+                    var password = _config["EmailPassword"];
                     var sub = subject;
                     var body = $"From Name: {name} Email:{email} \n{message}";
                     var smtp = new SmtpClient
@@ -84,7 +51,7 @@ namespace HelloTommy.Controllers
                         smtp.Send(mess);
                     }
 
-                    return View(myModel);
+                    return View();
                 }
             }
             catch (Exception)
@@ -92,7 +59,7 @@ namespace HelloTommy.Controllers
                 ViewBag.Error = "Some Error";
             }
 
-            return View(myModel);
+            return View();
         }
     }
 }

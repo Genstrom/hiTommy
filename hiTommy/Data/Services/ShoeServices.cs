@@ -7,9 +7,9 @@ namespace hiTommy.Data.Services
 {
     public class ShoeServices
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HiTommyApplicationDbContext _context;
 
-        public ShoeServices(ApplicationDbContext context)
+        public ShoeServices(HiTommyApplicationDbContext context)
         {
             _context = context;
         }
@@ -45,16 +45,14 @@ namespace hiTommy.Data.Services
         public Shoe UpdateShoeById(int shoeId, ShoeViewModel shoe)
         {
             var _shoe = _context.Shoes.FirstOrDefault(n => n.Id == shoeId);
-            if (_shoe is not null)
-            {
-                _shoe.Name = shoe.Name;
-                _shoe.Price = shoe.Price;
-                _shoe.IsOnSale = false;
-                _shoe.SalePrice = null;
-                _shoe.BrandId = shoe.BrandId;
+            if (_shoe is null) return _shoe;
+            _shoe.Name = shoe.Name;
+            _shoe.Price = shoe.Price;
+            _shoe.IsOnSale = false;
+            _shoe.SalePrice = null;
+            _shoe.BrandId = shoe.BrandId;
 
-                _context.SaveChanges();
-            }
+            _context.SaveChanges();
 
             return _shoe;
         }
@@ -62,12 +60,10 @@ namespace hiTommy.Data.Services
         public Shoe SetShoeOnSaleById(int shoeId, ShoeSaleViewModel shoe)
         {
             var _shoe = _context.Shoes.FirstOrDefault(n => n.Id == shoeId);
-            if (_shoe is not null)
-            {
-                _shoe.SalePrice = shoe.IsOnSale ? shoe.SalePrice : null;
+            if (_shoe is null) return _shoe;
+            _shoe.SalePrice = shoe.IsOnSale ? shoe.SalePrice : null;
 
-                _context.SaveChanges();
-            }
+            _context.SaveChanges();
 
             return _shoe;
         }
@@ -75,11 +71,9 @@ namespace hiTommy.Data.Services
         public void DeleteShoeById(int shoeId)
         {
             var _shoe = _context.Shoes.FirstOrDefault(n => n.Id == shoeId);
-            if (_shoe is not null)
-            {
-                _context.Shoes.Remove(_shoe);
-                _context.SaveChanges();
-            }
+            if (_shoe is null) return;
+            _context.Shoes.Remove(_shoe);
+            _context.SaveChanges();
         }
     }
 }
